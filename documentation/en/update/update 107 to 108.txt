@@ -1,0 +1,407 @@
+Below the various steps to update Arfooo Directory
+From version 1.0.7 to version 1.0.8
+
+
+1) Make a backup of your database
+
+2) Replace the folder 'admin/' on your server through the new folder 'admin/' version 1.0.8
+
+3) Replace the folder 'components/' on your server through the new folder 'components/' version 1.0.8
+
+4) In the folder 'config/' repalce the file 'version.php' your server by new files version 1.0.8
+
+5) In the folder 'controllers/' repalce the files 'CommentController.php', 'MenuController.php', 'SiteController.php' and 'WebmasterController.php' your server by new files version 1.0.8
+6) Upload on your server the new file 'controllers/NewsletterController.php' version 1.0.8
+
+7) In the folder 'core/' repalce the files 'ErrorHandler.php' and 'Session.php' your server by new files version 1.0.8
+
+8) Replace the folder 'javascript/' on your server through the new folder 'javascript/' de la version 1.0.8
+
+9) Replace the folder 'languages/' on your server through the new folder 'languages/' de la version 1.0.8
+
+10) In the folder 'models/' replace the files 'AdModel.php', 'CommentModel.php', 'OtherReferrerSiteModel.php', 'RefusalModel.php', 'SearchTagModel.php', 'SiteModel.php', and 'StatisticModel.php' your server by new files version 1.0.8
+11) In the folder 'models/' upload the new files 'BannedTagModel.php', 'NewsletterEmailModel.php' and 'VerificationModel.php'on your server.
+
+12) Replace the folder 'moderation/' on your server through the new folder 'moderation/' version 1.0.8
+
+13) In the folder 'views/' replace the file 'TemplateLiteView.php' your server by new files version 1.0.8
+
+
+
+
+14) the folder templates/  We will proceed to change line by line.
+These changes will take about 20 minutes.
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/css/style.css
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+.column_in_thematic {
+	float:left;
+	width:632px;
+	margin:0;
+	padding:0;
+	padding-bottom:2px;
+	margin-bottom:3px;
+	border-bottom:1px #574d44 dashed;
+}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+.column_in_thematic {
+	float:left;
+	width:642px;
+	margin:0;
+	padding:0;
+	padding-bottom:2px;
+	margin-bottom:3px;
+	border-bottom:1px #574d44 dashed;
+}
+
+.column_in_comment {
+	float:left;
+	width:642px;
+	margin:0;
+	padding:0;
+	padding-top:7px;
+	padding-bottom:7px;
+	border-bottom:1px #574d44 dashed;
+}
+
+.column_in_comment_grey {
+	float:left;
+	width:642px;
+	margin:0;
+	padding:0;
+	padding-top:7px;
+	padding-bottom:7px;
+	border-bottom:1px #574d44 dashed;
+	background-color:#efefef;
+}
+
+.column_in_comment_add {
+	float:left;
+	width:642px;
+	margin:0;
+	padding:0;
+	padding-top:30px;
+	padding-bottom:2px;
+	margin-bottom:10px;
+	border-bottom:1px #574d44 dashed;
+	font-weight:bold;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+.text_center {
+    text-align:center;
+    font-weight:bold;
+}
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+.text_comment {
+	font-size:0.8em;
+    color:#574d44;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+input.searchbutton {
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+input.newsletter_input {
+	width:144px;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+input.searchbutton {
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+input.subutton {
+	width:62px;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+input.unsubutton {
+	width:82px;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/menu/menuleft/menuleft.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{if $setting.keywordsEnabled}{"menu/displayKeywords"|action}{/if}
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+{if $setting.newsletterEnabled}
+
+<div class="menuleft">
+<ul>
+<li class="header">{'Newsletter'|lang}</li>
+<li class="text_last">
+<form action="{'/newsletter/setEmail'|url}" method="post" id="newsletter_form">
+<p>
+<input class="newsletter_input" type="text" name="email" value="" onfocus="this.value=''" /><br/>
+<input type="submit" name="addEmail" value="{'Subscribe'|lang}" class="subutton" />
+<input type="submit" name="deleteEmail" value="{'Unsubscribe'|lang}" class="unsubutton" /> 
+</p>
+</form>
+</li>
+</ul>
+</div>
+
+{/if}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/menu/menuleft/statistics.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{if isset($statistic.refusedSitesCount)}<li class="text">{'Websites Refused'|lang} : {$statistic.refusedSitesCount}</li>
+{/if}
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+{if isset($statistic.bannedSitesCount)}<li class="text">{'Websites Banned'|lang} : {$statistic.bannedSitesCount}</li>
+{/if}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<script type="text/javascript" src="{'/javascript/site/VisitSite.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/site/PopupWindow.js'|resurl}"></script>
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+{if $setting.commentsDisplayMethod == "siteDetails"}
+<script type="text/javascript" src="{'/javascript/webmaster/FormEditor.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/captcha/CaptchaCode.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/comment/Comment.js'|resurl}"></script>
+{/if}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<div class="column_in_details_middle">
+{if $setting.commentsEnabled}
+<a href="{"/comment/popup/$site.siteId"|url}" title="{'Write a comment'|lang}" class="link_black_grey_underline" rel="nofollow" id="commentPopupLink">{'Write a comment'|lang}</a>
+{/if}
+</div>
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<div class="column_in_details_middle">
+{if $setting.commentsEnabled}
+{if $setting.commentsDisplayMethod == "popup"}
+<a href="{"/comment/popup/$site.siteId"|url}" title="{'Write a comment'|lang}" class="link_black_grey_underline" rel="nofollow" id="commentPopupLink">{'Write a comment'|lang}</a>
+{else}
+<a href="#commentPost" title="{'Write a comment'|lang}" class="link_black_grey_underline" rel="nofollow">{'Write a comment'|lang}</a> 
+{/if}
+{/if}
+</div>
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{if !empty($googleMap)}
+<div id="map" style="width:100%; height:300px">
+{$googleMap|htmlspecialchars_decode}
+</div>
+{/if}
+</div>
+{displayAd place="underInformationCompany"}
+{/if}
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+{if $setting.commentsDisplayMethod == "siteDetails" && ($displayCommentForm || !empty($comments))}
+<div class="title_h_2_out">
+<div class="title_h_2" id="commentPost">
+<h2>{'Comments'|lang}: {$site.siteTitle}</h2>
+</div>
+</div>
+<div class="column_in">
+<!-- Comment Item -->
+{foreach from=$comments value=comment}
+<div class="column_in_comment{cycle values='_grey,'}">
+{$comment.pseudo} <span class="text_comment">{'wrote on'|lang}, {$comment.date|strtotime|date:$setting.dateFormat}:</span><br /><br />
+{$comment.text|nl2br} 
+</div>
+
+{/foreach}
+<!-- END Comment Item -->
+{if $displayCommentForm}
+<div class="column_in_comment_add">
+Ajouter un commentaire
+</div>
+
+<div class="column_in_table3">
+<form action="{"/comment/saveComment/$site.siteId"|url}" method="post" id="commentForm">
+
+<table cellspacing="1">
+<tbody>
+<tr>
+    <td>{'Pseudo'|lang}: </td>
+    <td><input type="text" class="input_text_medium" name="pseudo" value="" /></td>
+</tr>
+<tr>
+    <td>{'Comment'|lang}: </td>
+    <td><textarea class="textarea_large" name="text" cols="31" rows="5"></textarea></td>
+</tr>
+{if $setting.captchaEnabledOnComments}
+<tr>
+    <td>{'Security code'|lang}: </td>
+    <td>{'Captcha/show/link_black_grey_small'|action}</td>
+</tr>
+{/if}
+<tr>
+    <td></td>
+    <td><input type="submit" class="button" value="{'Comment'|lang}" /></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+{/if}
+</div>
+{/if}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/site/keyword.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<div class="title_h_1">
+<h1>{$keyword.keyword}</h1>
+</div>
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+{if !empty($keyword.description)}
+<div class="column_in">{$keyword.description|htmlspecialchars_decode|nl2br}</div>
+{/if}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/webmaster/logIn.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<div class="column_in_table2" id="webmasterInscriptionBlockContent">
+<form id="webmasterInscriptionForm" method="post" action="" onsubmit="return validateAndRegisterWebmaster('{'Please, enter a valid e-mail address.'|lang}', '{'Passwords are not equall.'|lang}', '{'Please enter a not-empty password.'|lang}', '{'Please, use another e-mail. This one is busy.'|lang}', '{'The registration was successful! You can login now.'|lang}', '{'You did not guess the security code. Try again with a new one.'|lang}');">
+<table class="table2" cellspacing="1">
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<div class="column_in_table2" id="webmasterInscriptionBlockContent">
+<form id="webmasterInscriptionForm" method="post" action="" onsubmit="return validateAndRegisterWebmaster('{'Please, enter a valid e-mail address.'|lang}', '{'Passwords are not equall.'|lang}', '{'Please enter a not-empty password.'|lang}', '{'Please, use another e-mail. This one is busy.'|lang}', '{if $setting.emailConfirmationEnabled}{'The registration was successful! You must confirm your email. Check your inbox.'|lang}{else}{'The registration was successful! You can login now.'|lang}{/if}', '{'You did not guess the security code. Try again with a new one.'|lang}');">
+<table class="table2" cellspacing="1">
+
+
+
+
+
+
+15) In the folder 'templates/arfooo/comment/' replace the file 'popup.tpl' on your server.
+
+16) In the folder 'templates/arfooo/includes/' replace the file 'pageNavigation.tpl' on your server.
+
+17) In the folder 'templates/arfooo/javascript/' replace the file 'config.tpl' on your server.
+
+18) In the folder 'templates/arfooo/webmaster/' replace the files 'submit2.tpl' and 'submitWebsite.tpl' on your server.
+19) In the folder 'templates/arfooo/webmaster/' upload new files 'confirmSiteEmail.tpl' and 'confirmUserEmail.tpl' on your server.
+
+20) In the folder 'templates/arfooo/ upload new folder 'newsletter/' on your server.
+
+
+
+         
+21) Upload on your server the folder 'install/
+Once uploaded folder, go to the following url: http://www.your-site.com/folderarfooo/install/update/update108.php 
+
+22) !!!!!!! WARNING !!!!!!!! 
+23) Read the instructions if you could lose data, it is necessary to safeguard your database. 
+24) ONLY 1 Click on the button "Update Now!" "
+
+25) Delete the folder 'install/'
+
+26) Delete the contents of the folders 'cache/'and 'compiled/' except .htaccess file and update several times the page on your directory with your 
+browser (IE, Mozilla, Opera ...)
+
+
+If you encounter other problems a forum is at your disposal: 
+http://forum.arfooo.net
+
+
+

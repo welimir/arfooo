@@ -1,0 +1,15 @@
+<functions>
+<function>
+<action>/plugins/versionTool/main/checkVersion</action>
+<description>
+
+Compare your version with version set inside plugin
+</description>
+</function>
+
+<function>
+<action>/plugins/versionTool/main/displayCurrentVersion</action>
+
+<description>display current version of your script</description>
+</function>
+</functions>

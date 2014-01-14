@@ -1,0 +1,6 @@
+allow from all
+Options +FollowSymlinks
+RewriteEngine on
+
+# PHP INFO
+RewriteRule info.html info.php [nc]

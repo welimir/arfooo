@@ -1,0 +1,281 @@
+/* CSS BY GUILLAUME HOCINE- START */
+
+/* PRINCIPAL */
+body {
+	margin:0; 
+	padding:0;
+	line-height:1.4em;
+	font-family:Tahoma, Verdana, Arial, sans-serif;
+	font-size:0.8em;
+	color:#000000;
+	background-color:#f8f8f8;
+}
+
+#principal {
+	position:absolute;
+	width:754px;
+	left:50%;
+	margin-left:-377px;
+}
+
+/* TOP OF PAGE | HAUT DE LA PAGE */
+#top1 {
+	margin:0;
+	padding:0;
+	height:200px;
+	background:url("../imagesRead/bg_header.png") left no-repeat;
+}
+
+/* BOTTOM OF PAGE | BAS DE LA PAGE */
+#bottom { 
+	margin:-2px 0 0 0; 
+	padding:0;
+	height:40px;
+	width:754px;
+	background:url("../imagesRead/bg_footer.png") bottom no-repeat #ffffff;
+}
+
+* html #bottom {
+	margin:-18px 0 0 0; 
+	padding:0;
+	height:40px;
+	width:754px;
+	background:url("../imagesRead/bg_footer.png") bottom no-repeat #ffffff;
+}
+		
+.column_bottom {
+	line-height:11px;
+	text-align:center;
+	font-size:0.9em;
+	padding:0;
+	margin:0;
+}
+
+
+/* MENU */		
+
+#main1 {
+	margin:0;
+	padding:0;
+	background-color:#ffffff;
+}
+		
+#main2 {
+	margin:0;
+	padding:0;
+	background-color:#ffffff;
+}
+		
+#left {
+	float:left;
+	margin:0; 
+	padding:0;
+}
+		
+#right {
+	float:right;
+	margin:0; 
+	padding:0;
+}
+
+/* CENTRAL PAGE */		
+
+#middle {
+	margin:0;
+	padding:0;
+}
+		
+.column {
+	margin:0;
+	padding:0;
+}
+
+#column_top {
+    float:left;
+	height:40px;
+	width:754px;
+    margin:0;
+    padding:0;
+	background:url("../imagesRead/bg_top.png") top left no-repeat #ffffff;
+}
+
+.column_in {
+	float:left;
+	width:712px;
+	margin:0;
+	padding:0 20px 0 20px;
+	border-right:1px #9f9f9f solid;
+	border-left:1px #9f9f9f solid;
+}
+
+.column_in_text_just {
+	float:left;
+	width:711px;
+	margin:7px 0 7px 0;
+	padding:0;
+	text-align:justify;
+}
+
+.column_in_text{
+	float:left;
+	width:711px;
+	margin:7px 0 7px 0;
+	padding:0;
+}
+
+.column_in_right {
+	float:left;
+	width:711px;
+	margin:7px 0 0 0;
+	padding:0;
+	text-align:right;
+}
+
+.column_in_button {
+	float:left;
+	width:711px;
+	height:25px;
+	margin:0;
+	margin-top:7px;
+	padding:0;
+	text-align:right;
+}
+
+.column_in_finish {
+	float:left;
+	width:734px;
+	margin:0;
+	margin-bottom:7px;
+	padding:15px;
+	text-align:center;
+	border:1px #c1c1c1 solid;
+}
+
+
+/* table */
+
+.column_in_table {
+	float:left;
+	width:700px;
+	margin:10px 0 0 0;
+	padding:0;
+}
+
+.column_in_table2 {
+	float:left;
+	width:711px;
+	margin:0;
+	padding:0;
+	margin-bottom:7px;
+}
+
+.table3 {
+	width:712px;
+	margin:0;
+	padding:0;
+	background-color:#ffffff;
+}
+
+td {
+	text-align:left;
+	padding:4px;
+	line-height:1.20em;
+}
+
+.col1 { width:270px; }
+.col2 { width:auto }
+.col1-1 { width:150px; }
+.col2-2 { width:auto; }
+.line1 { background-color:#dbedff; }
+.line2 { background-color:#ffffff; }
+
+
+/* title */
+
+.title_h_1 {
+	float:left;
+	width:711px;	
+	margin:25px 0 0 0;
+	padding:0 0 7px 0;
+	font-size:1.5em;
+	font-weight:bold;
+	border-bottom:1px #9f9f9f solid;
+}
+
+.title_h_2 {
+	float:left;
+	width:711px;	
+	margin:0;
+	margin-top:15px;
+	padding:0 0 7px 0;
+	font-size:1.5em;
+	font-weight:bold;
+	border-bottom:1px #9f9f9f solid;
+}
+
+.title_h_3 {
+	float:left;
+	width:711px;	
+	margin:25px 0 25px 0;
+	padding:0 0 7px 0;
+	font-size:1.5em;
+	font-weight:bold;
+	border-bottom:1px #9f9f9f solid;
+}
+
+.title_h_4 {
+	float:left;
+	width:711px;	
+	margin:15px 0 25px 0;
+	padding:0 0 7px 0;
+	font-size:1.5em;
+	font-weight:bold;
+	border-bottom:1px #9f9f9f solid;
+}
+		
+.fixe {
+	clear:both;
+	height:1px;
+	font-size:1px;
+	border:none;
+	margin:0;
+	padding:0;
+	background:transparent;
+}
+	   
+.fixe1 {
+	line-height:0.1em;
+	margin:0;
+	padding:0;
+	background:transparent;
+}
+/* LINKS AND TEXT STYLE */
+
+a { font-family:Tahoma, Verdana, Arial, sans-serif; }
+a:link, a:visited { color:#000000; text-decoration:none; }
+a:hover, a:active { color:#ef560a; text-decoration:none; }
+
+a.blue_orange { font-family:Tahoma, Verdana, Arial, sans-serif; }
+a.blue_orange:link, a.blue_orange:visited { color:#1685b7; text-decoration:none; }
+a.blue_orange:hover, a.blue_orange:active { color:#ef560a; text-decoration:none; }
+
+
+h1 {
+	margin:0;
+	padding:0;
+	display:inline;
+	font-family:Tahoma, Verdana, Arial, sans-serif;
+	font-size:1.1em;
+	font-weight:bold;
+	color:#ef560a;
+}
+
+h2 {
+	margin:0;
+	padding:0;
+	display:inline;
+	font-family:Tahoma, Verdana, Arial, sans-serif;
+	font-size:1.1em;
+	font-weight:bold;
+	color:#ef560a;
+}

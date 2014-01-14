@@ -1,0 +1,28 @@
+Below the various steps to update Arfooo Directory
+From version 1.0.3 to version 1.0.4
+
+
+
+1) Make a backup of your database 
+2) Replace 4 files by following the new version 1.0.4: 
+- File config/version.php 
+- File core/cacher.php 
+- File models/visitModel.php 
+- File views/TemplateLiteView.php
+
+
+
+3) Upload on your FTP folder install/
+rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/
+
+4) !!!!!!! WARNING !!!!!!!! 
+5) Read the instructions if you could lose data, it is necessary to safeguard your database. 
+6) ONLY 1 Click on the file "update104.php" 
+7) Delete the contents of the folder "cache/" and "compiled/" except .htaccess 
+
+8) Delete the folder "install/"
+
+
+
+If you encounter other problems a forum is at your disposal: 
+http://forum.arfooo.net

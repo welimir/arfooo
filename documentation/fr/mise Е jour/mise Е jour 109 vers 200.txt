@@ -1,0 +1,28 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0. vers la version 2.0.0
+
+
+1) Faites une sauvegarde de votre base de données et de vos anciens fichiers
+
+2) Supprimez vos anciens fichiers Arfooo Annuaire sauf : 
+
+   - le fichier .htaccess
+   - le fichier /config/db.php 
+   - le dossier /save/
+   - le dossier /uploads/ 
+
+3) Envoyez les nouveaux fichiers.
+
+4) Rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/update200.php
+
+5) !!!!!!! ATTENTION !!!!!!!!
+6) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+7) Cliquer 1 SEULE FOIS sur le bouton "Update Now!"
+
+8) Supprimer le dossier '/install/'
+
+9) Supprimer le contenu des dossiers '/cache/' et '/compiled/' sauf les .htaccess et actualiser plusieurs fois la page de votre annuaire à l'aide de votre
+navigateur (IE, Mozilla, Opera...)
+
+Si vous rencontrez d'autres problèmes ou voulez plus de détail sur la modification des fichiers, un forum est à votre disposition :
+http://forum.arfooo.com

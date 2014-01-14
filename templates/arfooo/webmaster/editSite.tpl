@@ -1,0 +1,1 @@
+{include file="webmaster/submitWebsite.tpl"}

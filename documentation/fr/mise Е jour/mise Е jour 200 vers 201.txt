@@ -1,0 +1,169 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 2.0.0 vers la version 2.0.1
+
+
+1) Faites une sauvegarde de votre base de données 
+
+2) Remplacer le fichier 'core.php' de votre serveur par le nouveau fichier de la version 2.0.1
+
+3) Remplacer le dossier '/admin/' de votre serveur par le nouveau dossier de la version 2.0.1
+
+4) Remplacer le dossier '/components/' de votre serveur par le nouveau dossier de la version 2.0.1
+
+5) Dans le dossier '/config/' remplacer les fichiers 'version.php' et 'routes.php' de votre serveur par les nouveaux fichiers de la version 2.0.1
+
+6) Dans le dossier '/controllers/' remplacer les fichiers 'CommentController.php', 'MenuController.php', 'RssController.php', 'SiteController.php', et 'UserController.php' de votre serveur par les nouveaux fichiers de la version 2.0.1
+
+7) Dans le dossier '/core/' remplacer les fichiers 'ErrorHandler.php', 'FrontController.php' et 'Router.php' de votre serveur par les nouveaux fichiers de la version 2.0.1
+
+8) Remplacer le dossier '/javascript/' de votre serveur par le nouveau dossier de la version 2.0.1
+
+9) Remplacer le dossier '/languages/' de votre serveur par le nouveau dossier de la version 2.0.1
+
+10) Dans le dossier '/models/' uploader le nouveau fichier 'RewriteModel.php' de la version 2.0.1
+
+11) Dans le dossier '/models/' remplacer les fichiers 'CategoryModel.php', 'SiteListModel.php', 'SiteSearcherModel.php' et 'SiteValidatorModel.php' de votre serveur par les nouveaux fichiers de la version 2.0.1
+
+12) Remplacer le dossier '/moderation/' de votre serveur par le nouveau dossier de la version 2.0.1
+
+13) Dans le dossier '/views/' remplacer le fichier 'JsonView.php' de votre serveur par les nouveaux fichiers de la version 2.0.1
+
+
+
+
+
+14) le dossier /templates/  Nous allons procéder au changement ligne par ligne.
+Ces changements prendront environs 5 minutes.
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/menu/menuheader/menuheader.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<li id="news"><a href="{'/site/news'|url}">{'menuMenuheader_news'|lang}</a></li>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if !empty($setting.newsEnabled)}<li id="news"><a href="{'/site/news'|url}">{'menuMenuheader_news'|lang}</a></li>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/payment/selectPaymentOptions.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{capture assign="headData"}
+<script type="text/javascript" src="{'/javascript/config'|url}"></script> 
+<script type="text/javascript" src="{'/javascript/jquery/jquery.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.form.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.formTool.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery-validate/jquery.validate.js'|resurl}"></script> 
+<script type="text/javascript" src="{'/javascript/payment/selectPaymentOptionsOnLoad.js'|resurl}"></script>
+<script type="text/javascript">
+setting.allopassNumbers = {$allopassNumbersJSON};
+</script>
+{/capture}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{capture assign="headData"}
+<link href="{'/templates/arfooo/jquery/theme/ui.all.css'|resurl}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{'/javascript/config'|url}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery-ui.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.form.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.formTool.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery-validate/jquery.validate.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/payment/selectPaymentOptionsOnLoad.js'|resurl}"></script>
+<script type="text/javascript">
+setting.allopassNumbers = {$allopassNumbersJSON|htmlspecialchars_decode};
+</script>
+{/capture}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+</fieldset>
+              
+{include file="includes/footer.tpl"} 
+
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+</fieldset>
+</form>
+              
+{include file="includes/footer.tpl"}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<li id="comment_rating"><a href="{"/comment/popup/$site.siteId"|url}" class="link_black_grey_underline dialog" rel="nofollow" title="{'siteDetails_write_comment'|lang} / {'siteDetails_rate_website'|lang}" id="commentPopupLink">{'siteDetails_write_comment'|lang} / {'siteDetails_rate_website'|lang}</a></li>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if $setting.commentsEnabled}
+<li id="comment_rating"><a href="{"/comment/popup/$site.siteId"|url}" class="link_black_grey_underline dialog" rel="nofollow" title="{'siteDetails_write_comment'|lang} / {'siteDetails_rate_website'|lang}" id="commentPopupLink">{'siteDetails_write_comment'|lang} / {'siteDetails_rate_website'|lang}</a></li>
+{/if}
+
+
+
+
+
+
+15) Dans le dossier '/templates/arfooo/css/' remplacer le fichier 'upload.css' de votre serveur par le nouveau fichier de la version 2.0.1
+
+16) Dans le dossier '/templates/arfooo/images/' remplacer le fichier 'loader.gif' de votre serveur par le nouveau fichier de la version 2.0.1
+
+17) Remplacer le dossier '/templates/arfooo/jquery/' par le nouveau dossier de la version 2.0.1
+
+18) Dans le dossier '/templates/arfooo/webmaster/' remplacer le fichier 'submitWebsite.tpl' de votre serveur par le nouveau fichier de la version 2.0.1
+
+
+
+
+
+
+19) Uploader sur votre serveur le dossier '/install/'
+puis rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/update201.php
+
+20) !!!!!!! ATTENTION !!!!!!!!
+21) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+22) Cliquer 1 SEULE FOIS sur le bouton "Update Now!"
+
+23) Supprimer le dossier '/install/'
+
+24) Supprimer le contenu des dossiers '/cache/' et '/compiled/' sauf les .htaccess et actualiser plusieurs fois la page de votre annuaire à l'aide de votre
+navigateur (IE, Mozilla, Opera...)
+
+Si vous rencontrez d'autres problèmes ou voulez plus de détail sur la modification des fichiers, un forum est à votre disposition :
+http://forum.arfooo.com
+
+
+

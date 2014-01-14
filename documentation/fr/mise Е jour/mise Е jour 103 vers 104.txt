@@ -1,0 +1,27 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0.3 vers la version 1.0.4
+
+
+1) Faites une sauvegarde de votre base de données
+2) Remplacer les 4 fichiers suivant par les nouveaux de la version 1.0.4 :
+- le fichier config/version.php
+- le fichier core/cacher.php
+- le fichier models/visitModel.php
+- le fichier views/TemplateLiteView.php
+
+
+
+3) Uploader sur votre FTP le dossier install/
+rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/
+
+4) !!!!!!! ATTENTION !!!!!!!!
+5) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+6) Cliquer 1 SEULE FOIS sur le fichier "update104.php"
+7) Supprimer le contenu des dossier "cache/" et "compiled/" sauf les .htaccess
+
+8) Supprimer le dossier "install/"
+
+Si vous rencontrez des problèmes un forum est à votre disposition :
+http://forum.arfooo.com
+
+

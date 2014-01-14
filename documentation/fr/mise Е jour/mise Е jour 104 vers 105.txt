@@ -1,0 +1,280 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0.4 vers la version 1.0.5
+
+
+1) Faites une sauvegarde de votre base de données
+2) Uploader le fichier templates/arfooo/front/404.tpl se trouvant dans la version 1.0.5 sur votre ftp
+3) Supprimer tout le dossier contenant les fichiers Arfooo Annuaire SAUF :
+- le fichier config/db.php
+- le dossier upload/
+- le fichier .htaccess
+- le dossier templates/  Nous allons procéder au changement ligne par ligne.
+Ces changements prendront environs 5 minutes.
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/includes/pageNavigation.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if !empty($pageNavigation.totalPages)}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if !empty($pageNavigation.totalPages) && $pageNavigation.totalPages > 1}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/keyword/show.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{include file="includes/header.tpl" title="{'Keywords'|lang} - "|cat:$letter}  
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{include file="includes/header.tpl" title="{'Keywords'|lang} - "|cat:$letter metaDescription="{'Directory of words starting with '|lang}"|cat:$letter}    
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ RECHERCHER ET SUPPRIMER ]------------------------------------------
+#
+
+{if $site.rssFeedOfSite != '' && $site.rssTitle != ''}
+<div class="column_in_details_center_grey">  
+{'RSS Flux'|lang} 
+</div>
+<div class="column_in_details_center"> 
+{'Title of the flux'|lang} : 
+        <a href="{$site.rssFeedOfSite}" title="{$site.rssTitle}" class="link_black_grey">
+             {$site.rssTitle} 
+        </a> 
+</div>
+{/if}
+
+{displayAd place="underInformationFluxRss"}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<a href="{"/vote/popup/$site.siteId"|url}" title="{'Rate this site'|lang}" class="link_black_grey_underline" id="votePopupLink" >{'Rate this site'|lang} </a> 
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<a href="{"/vote/popup/$site.siteId"|url}" title="{'Rate this site'|lang}" class="link_black_grey_underline" rel="nofollow" id="votePopupLink" >{'Rate this site'|lang} </a> 
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<a href="{"/comment/popup/$site.siteId"|url}" title="{'Write a comment'|lang}" class="link_black_grey_underline" id="commentPopupLink">{'Write a comment'|lang}</a> 
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<a href="{"/comment/popup/$site.siteId"|url}" title="{'Write a comment'|lang}" class="link_black_grey_underline" rel="nofollow" id="commentPopupLink">{'Write a comment'|lang}</a> 
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<a href="{"/site/problemPopup/$site.siteId"|url}" title="{'Report a problem'|lang}" class="link_black_grey_underline" id="problemPopupLink">{'Report a problem'|lang}</a> 
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<a href="{"/site/problemPopup/$site.siteId"|url}" title="{'Report a problem'|lang}" class="link_black_grey_underline" rel="nofollow" id="problemPopupLink">{'Report a problem'|lang}</a> 
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if !empty($randomSites)}
+<div class="title_h_2_out">
+<div class="title_h_2">
+<h2>{'Thematic close to'|lang} {$site.siteTitle}</h2>
+</div>
+</div>
+
+#
+#----[ AVANT AJOUTER ]------------------------------------------
+#
+
+{if $site.rssFeedOfSite != '' && $site.rssTitle != ''}
+<div class="title_h_2_out">
+<div class="title_h_2">
+<h2>{'RSS Flux'|lang} {$site.siteTitle}: <a href="{$site.rssFeedOfSite}" title="{$site.rssTitle}" class="link_showarbo">{$site.rssTitle}</a></h2>
+</div>
+</div>
+<div class="column_in">
+{if !empty($remoteRss)}
+{foreach from=$remoteRss.items value=item}
+<a href="{$item.link}" class="link_black_grey_bold">{$item.title|truncate:$setting.numberOfCharactersForRssParsing}</a><br />
+{$item.description|truncate:$setting.numberOfCharactersForRssParsing}<br /><br />
+{/foreach}
+{/if}
+</div>
+{/if}
+
+{displayAd place="underInformationFluxRss"} 
+
+{if $setting.companyInfoEnabled && $site.address != ''}
+<div class="title_h_2_out">
+<div class="title_h_2">
+<h2>{'Company information'|lang}: {$site.siteTitle}</h2>
+</div>
+</div>
+<div class="column_in">
+<table class="table3" cellspacing="1">
+<col class="col1-4" /><col class="col2-4" />
+<tbody>
+{if $site.address != ''}
+<tr>                                      
+    <td class="td_bold">{'Adress'|lang}:</td>
+    <td>{$site.address}</td>
+</tr>
+{/if}
+{if $site.zipCode != ''}
+<tr>
+    <td class="td_bold">{'ZIP Code'|lang}:</td>
+    <td>{$site.zipCode}</td> 
+</tr>
+{/if}
+{if $site.city != ''}
+<tr>
+    <td class="td_bold">{'City'|lang}:</td>
+    <td>{$site.city}</td> 
+</tr>
+{/if}
+{if $site.country != ''}
+<tr>
+    <td class="td_bold">{'Country'|lang}:</td>
+    <td>{$site.country}</td> 
+</tr>
+{/if}
+{if $site.phoneNumber != ''}
+<tr>
+    <td class="td_bold">{'Phone number'|lang}:</td>
+    <td>{$site.phoneNumber}</td> 
+</tr>
+{/if}
+{if $site.faxNumber != ''}
+<tr>
+    <td class="td_bold">{'Fax number'|lang}:</td>
+    <td>{$site.faxNumber}</td>   
+</tr> 
+{/if}
+</tbody>
+</table>
+
+{if !empty($googleMap)}
+<div id="map" style="width:100%; height:300px">
+{$googleMap|htmlspecialchars_decode}
+</div>
+{/if}
+</div>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/item.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{$site.description|highlight:$display.highlightKeywords|nl2br}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{$site.description|truncate:$setting.numberOfCharactersForItemDescription|highlight:$display.highlightKeywords|nl2br}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{$site.description|nl2br}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{$site.description|truncate:$setting.numberOfCharactersForItemDescription|nl2br}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/webmaster/submit1.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<a href="index1.php" class="link_showarbo">{'Directory'|lang}</a> &gt; <a href="webmasterManagement.php" class="link_showarbo">{'Submit your site'|lang}</a> 
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<a href="{$setting.siteRootUrl}" class="link_showarbo">{'Directory'|lang}</a> &gt; <a href="{'/webmaster/submit1'|url}" class="link_showarbo">{'Submit your site'|lang}</a> 
+
+
+
+
+4) Pour les fichiers :
+- templates/arfooo/webmaster/submit2.tpl  et
+- templates/arfooo/webmaster/submitWebsite.tpl 
+Remplacer ces anciens fichiers par les nouveaux fichier de arfooo annuaire 1.0.5
+
+
+5) Uploader sur votre ftp les fichiers et dossiers de la version 1.0.5 SAUF ceux que vous avez gardé sur votre FTP.
+Il faut donc simplement supprimer les fichiers/dossiers que je vais citer ci-dessous contenu dans la nouvelle version 1.0.5 que vous venez de télécharger :
+Supprimer :
+- le fichier config/db.php
+- le dossier upload/
+- le fichier .htaccess
+- le dossier templates SAUF les fichiers que vous venez de modifier.
+Uploader maintenant tout le contenu du dossier Arfooo Annuaire 1.0.5
+
+
+
+rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/update105.php
+
+6) !!!!!!! ATTENTION !!!!!!!!
+7) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+8) Cliquer 1 SEULE FOIS sur le bouton "Update Now!"
+9) Rendez-vous sur votre annuaire dans la partie visiteur et non admin et regardez si des caractères étranges apparaissent.
+
+10) SI DES CARACTERES ETRANGES APPARAISSENT ET UNIQUEMENT SI DES CARACTERES ETRANGES APPARAISSENT, cliquer 1 SEULE FOIS sur le fichier "fixdb.php"
+11) Supprimer le dossier "install/"
+
+Si vous rencontrez d'autres problèmes un forum est à votre disposition :
+http://forum.arfooo.com
+

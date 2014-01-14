@@ -1,0 +1,277 @@
+Below the various changes that have taken place for Arfooo Directory 
+
+
+
+version 2.0.2 (22/11/2010)
+
+Updated :
+Version 2.0.2 :
+1) Arfooo Directory is now fully compatible with PHP 5.3.x
+1) Adding the ability to format the description with html. Secured with htmlpurifier. Thank you for this very powerful library.
+4) Added a function to check the duplication of content. Can be checked during site submission. Also serves to check later if the description is duplicated...
+2) Adding in the admin the ability to classify a site in an unlimited number of categories.
+2) Adding in the admin the ability to pass additional parameters in URLs to track its newsletters for example.
+2) Adding on the results page of search engine, in the title tag and h1, the word searched.
+2) Improve the relevance of search engine results
+2) Fixed a bug with the search engine. The settings were hard coded.
+1) Added ability to customize the attribute alternative images.
+2) The uploaded images are not distorted.
+2) Adding additional fields : URL field. Options: anchor text and nofollow
+2) Adding additional fields : File field. Allows upload and download a file.
+2) Added ability to customize the style of the additional field via css.
+7) Added display of stars for the rate. It's more web 2.0: D
+2) Added in the admin the part "Manage banned sites."
+4) Added several translations forgotten.
+3) Passage of the Google Maps API version 2 to version 3.
+2) Improvement of the newsletter part.
+3) Improvement of the template system. The template name is now a variable.
+3) Improvement of the session. The sessions will be shut most of the time that the user is online.
+2) Fixed a bug where the admin to select an unlimited number of keywords.
+3) Fixed a bug that prevented the admin to manage the sites image.
+4) Fixed bug with submission and premium modes Allopass payment and Paypal.
+4) Fixed a bug that prevented to upload a csv file for the newsletter.
+5) Fixed a bug with deleting the cache and compiled templates. Thanks gunner!
+6) Fixed a bug with the thumbs if the image was returned empty. Thanks dnd!
+
+
+
+version 2.0.1 (24/03/2010)
+
+Updated :
+Version 2.0.1 :
+1) Add in admin the possibility to reclassify the categories and subcategories by alphabetical order.
+2) Add 301 permanent redirect when using Mode 2 of the URL rewrite when generating URLs button was not pressed.
+3) Add the possibility to display sites in categories and subcategories according to 2 modes. 1 classic and 2 can display sites in parents categories.
+4) Add the possibility to manage the display and saving errors to a file.
+5) Add a target="blank" for reading the terms and conditions to not erase the form.
+6) Add in the admin a search engine to search webmaster by their email.
+7) Correction of spelling errors.
+8) Fixed various problems with the thumbs, ascreen and images.
+9) Fixed display issues in admin with IE browsers.
+10) Fixed bug URLs with tynimce. From relative to absolute.
+11) Fixed a bug with submission privilege. Webmasters are now properly redirected to the submission form after payment.
+12) Fixed a bug with submission privilege. In selecting offer, the description is now loaded correctly.
+13) Fixed various problems with RSS.
+14) Fixed a bug that prevented the selection of more than 4 keywords.
+15) Fixed a bug with referrers.
+16) Fixed a bug when editing a website by the webmaster. The subcategories were not loaded.
+
+
+
+version 2.0.0 (10/02/2010)
+
+Updated :
+Version 2.0.0 :
+1) Optimization and rewriting part of the engine.
+2) Add the jQuery Javascript library.
+3) Add the possibility to create additional fields (text, textarea, checkbox, select, range, radio button).
+4) Add the possibility for users to upload images / photos.
+5) Add and possibility to optimize many fields for search engine, SEO (html title, meta description, H1, rail...)
+6) Add the possibility to change the odre categories.
+7) Add the possibility to create new administrator.
+8) Add the possibility to optimize Arfooo directory with different options.
+9) Add a second mode to URL rewrite with injection of categories in URLs.
+10) Add the possibility for webmasters to submit multiple URLs for the same site.
+11) Added the possibility to create directories with no URL. The URL field can be optional or mandatory.
+12) Modification of sitemap generation.
+13) Modification of the search engine with advanced customization option.
+14) Modification of rating system and comment
+15) Modification of the admin template and the front office template.
+
+
+
+version 1.0.9 (22/02/2009)
+
+Updated :
+Version 1.0.9 :
+1) Adding the "Ascreen" feature.
+2) Add in the administration of a possibility for each site:
+- Update the thumb
+- Delete the thumb and replace them with the ascreen
+- Delete ascreen and replace them with the thumb
+3) Add in the administration of the possibility of type [url] as a wildcard for the generation of images (thumbs) to easily enter the parameter of the size of the thumb.
+4) Add in the administration of possibility change for each tag, the number of research associated with it.
+5) Add in the administration of the possibility to display or not the contact page and the page allcategories.
+6) Add in the administration of the opportunity to test each email, sending a test email to the administrator of the directory.
+7) Add in the administration of the possibility to filter categories. The sites of filtered categories are not displayed in the top pages, new page, the search engine, the index page (random website).
+8) Add in the administration of the possibility to position the ad on pages "contact" and "allcategories".
+9) Modification of the 404 error. Categories, keywords, websites, tags are now 301 permanent redirect after modification.
+10) Fixed a bug with the search engine and the " " which displays a description empty.
+11) Fixed a bug that prevented editing of descriptive categories.
+12) Fixed a bug with allopass. If the number of allopass was 0, the webmaster could still choose this payment system.
+13) Correction of the English language files. (Thx Chadon)
+
+
+
+version 1.0.8 (14/12/2008)
+
+Updated: 
+Version 1.0.8 :
+
+1) Add the statistical "banned sites". 
+2) Add in the administration of the possibility of banishing Tag, to delete. 
+3) Add in the administration of the opportunity to manage the advertising tags. 
+4) Adding to the administration of the option to disable the backlink mandatory in the payment system. 
+5) Add in the administration of the possibility of adding a description in the keywords. 
+6) Adding to the administration in the mail a button to display the type of submission: free or paid. 
+7) Adding to the administration of the possibility of sending newsletter in HTML format. 
+8) Adding to the administration of the ability to import/export emails to the newsletter. 
+9) Add the possibility to subscribe / unsubscribe from the newsletter. 
+10) Adding a verification system by mail during the registration webmasters or submitting a site.
+11) Amendments to System backlink to make it more efficient. 
+12) Amendments to generation sitemap.xml order not to overload the server's memory. 
+13) Amendments to the new page. We must now choose the number of sites to display on this page. 
+14) Amendment of the paging system. Now the title is displayed in the pages. 
+15) Change in the form of submission of the site. When the number of characters is reached, the color turns green. 
+16) Amendment to display the comments. It is now possible to choose display or popup on the details of the sites. 
+17) Amendment of the advertising system to change quickly in advertising sites. 
+18) Changing the management referrers. 
+19) Amendment of search engine results 
+20) Amendment comprehensive management of Google Maps. 
+21) Fix a bug that prevented from using the background task. 
+22) Fix a bug with Tag clouds and special characters. 
+23) Remove the opportunity to choose to disable the caching system as a matter of logic.
+
+
+
+Version 1.0.7 (24/10/2008)
+
+Updated: 
+Version 1.0.7: 
+
+1) Add the tags clouds function. 
+2) Add the ability to choose the type of submission of a site (free or paid) through Allopass and Paypal. 
+3) Adding to the administration of a text editor (TinyMCE) to facilitate the editing of texts. 
+4) Adding to the administration of 3 links allowing you to view (the link to the site, the RSS, the map Google Maps). 
+5) Add in the administration and the ability to manage the backlinks on the form (Enabling/Disabling, personalization of the url and text).
+6) Changing the advertising system to enable quick advertising on all pages. 
+7) Fix a bug with the cache of RSS feed that was not removed after "X" days. 
+8) Fix a bug with the "/" and keywords. 
+9) Fix a bug with the words beginning with "admin" and "moderation" which returned a 404 error. 
+10) Fixed several bugs when registration webmasters was not activated.
+11) Correction of several alerts javascripts untranslated. 
+12) Fix a bug with the command link: google which returned 0. 
+13) Fix a bug with the function unserialize () which did not display the information on Google servers. 
+14) Fix a bug with firefox and verification of keywords. 
+15) Fix a bug with the metas description of keywords page.
+16) Fix a bug that prevented the administrator to add a site if the category does not accept site. 
+17) Fix a bug that does not change the webmaster of a site. 
+18) Fix a bug that does not me the date of validation of a site through the form of edit the site. 
+19) Fix a bug that shows the link javascript comments even if comments were disabled. 
+20) Fix a bug that I had not updated the counter of the category, if you change a category.
+21) Fix a bug with the captcha that was sometimes not generated. 
+22) Fix a bug with background and research of thumbs, newsletter, site with problem... 
+23) Changing the management comments. 
+24) Changing images path to facilitate the creation of template:
+    uploads/images_categories/defaultCategoryImage.gif --> templates/arfooo/images/defaultCategoryImage.gif
+    uploads/images_thumbs/default.jpg -->  templates/arfooo/images/default.jpg
+25) Changes of the page when registration websites are closed, it is now easily customizable. 
+26) Create a file ref.php to count the referrers throughout your site. 
+27) Correction of spelling mistakes.
+
+
+
+
+Latest version 1.0.6 (02/08/2008)
+
+Updated: 
+Version 1.0.6: 
+
+1) Add the feature which cache the rss feed parser sites. 
+2) Add the function to customize the title <title></title> of a category (optional). 
+3) Add the feature to reset the image of a site after adding a personalized image. 
+4) Add the function to banish one or several urls. Very useful to ban system blogs like skyblogs, subdomains free, wanadoo ... 
+5) The referrers are now ordered by DESC in the admin. 
+6) Fixed several bugs for rss feeds: 
+- If the description was empty, an error appears. 
+- If the rss feed containing html tags, the tags were displayed.
+- The tag <guid></guid> now contains the url Permanent Site
+7) Fixed a bug with the "/" and the sitemap.xml 
+8) Fix a bug with Google maps where the address was invalid, the country is now displayed with a zoom 12. 
+9) Fixed a bug with Google maps and PageRank, which remained on loading ... 
+10) Fixed a bug that allowed you to view a site on hold if the exact url was indicated in the search engine (www.urlexact.com).
+
+
+
+Latest version 1.0.5 (02/07/2008)
+
+Updated: 
+Version 1.0.5: 
+
+1) Add function to parse the Rss feeds in detail page of websites 
+2) Add the function that displays Google map, the company information (address, phone, fax ...) 
+3) Add the function to choose the sort of sites (alphabetical, referrers, date of validation) 
+4) Add the custom page 404 error. 
+5) Add the possibility to truncate the description of sites on all pages except the detail sites. 
+6) Modificaton of the function of metas tag description to avoid duplicate between metas tag description and title. 
+7) The keywords proposed and the proposed categories are removed from the database once the site validated. 
+8) Fix a problem of duplicate content with keywords. 
+9) Fixed a bug allowing a webmaster to connect without his login, only with his password. 
+10) Fixed a bug with the url show_arbo when registering webmaster was deactivated.
+
+
+
+Version 1.0.4 (22/05/2008) 
+
+Updated: 
+Version 1.0.4: 
+
+1) Fix a bug in the database and the tables  _visits with a PRIMARY key which should not be 
+and which resulted in a crash of the directory. 
+2) Amendments to 3 files for better compatibility with all the hosts.
+
+
+
+Version 1.0.3 (18/05/2008) 
+
+Updated: 
+Version 1.0.3: 
+
+1) Adding to the administration the management of the link back mandatory (on/off). 
+2) Adding to the administration the management of random sites on the details of the sites (on/off). 
+Possibility configuration of the number of random site, the length of the description, with a common keyword (on/off).
+3) Adding to the administration the management of the minimum number of characters required for the description of the sites. 
+4) Adding to the administration the management by flag to know the language sites (on/off).
+5) Adding to the administration the fields "url" at the research site. 
+6) The administrator can now add as many site, whether or not the same without any constraint. 
+7) The administrator can move categories without any coercion, no need to remove them if a class has been forgotten. 
+8) Changing the management of emails in the administration. 
+You can now config all emails in the administration, add, edit them at will.
+9) The keywords are now listed alphabetically. 
+10) Changing the form to subbmited sites, with the addition of html code for the backlink.
+11) Add the IP protection for top referrers. 
+12) Adding Rss feeds for sites. 
+13) Correction for rss feeds, "-" are no longer present in the title of flux. 
+14) index.php is now being redirected to 301 permanent to / 
+15) A bug with the "/" and rewriting the URL is now corrected 
+16) The date of indexing sites is updated when you validated the site.
+18) The urls orange next to "Details" are now in the form www.arfooo.com even if the url is profound.
+
+
+
+Version 1.0.2 (22/03/2008) 
+
+Updated: 
+Version 1.0.2: 
+
+1) Correction minor Javascript. 
+
+
+
+Version 1.0.1 (19/03/2008) 
+
+Updated: 
+Version 1.0.1: 
+
+1) Adding to the administration the management of referrers. 
+2) Adding to the front office of the opportunity for webmasters to change their password. 
+3) Add the possibility to validate the comments automatically or after verification 
+4) Improved caching system and a bug that unnecessarily updated cache. 
+5) Url rewrite has totally changed: 
+    - Compatibility with all servers with activated mod_rewrite 
+    - Compatibility with all servers with mod_rewrite disabled 
+6) The sitemap.xml is 100% compatible 
+7) Add and correction of the language of some JavaScript 
+8) Fix some bugs in the administration that prevented the removal of sites and comments. 
+9) Fix a problem when encoding detection metas tags. 
+10) Fix a bug in keywords and characters multibytes.

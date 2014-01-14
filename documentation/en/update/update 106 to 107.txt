@@ -1,0 +1,887 @@
+Below the various steps to update Arfooo Directory
+From version 1.0.6 to version 1.0.7
+
+
+1) Make a backup of your database
+
+2) Replace the folder 'admin/' on your server through the new folder 'admin/' version 1.0.7
+
+3) Replace the folder 'components/' on your server through the new folder 'components/' version 1.0.7
+
+4) In the folder 'config/' repalce the files 'flags.php', 'main.php', 'rewrite.php' and 'version.php' your server by new files version 1.0.7
+
+5) In the folder 'controllers/' repalce the files 'KeywordController.php', 'MainController.php', 'MenuController.php', 'SiteController.php' and 'WebmasterController.php' your server by new files version 1.0.7
+6) Upload on your server the new file 'controllers/PaymentController.php' version 1.0.7
+
+7) In the folder 'core/' repalce the files 'Acl.php', 'Controller.php', 'Core.php', 'Criteria.php', 'ErrorHandler.php', 'FrontController.php', 'Model.php', and 'Object.php' your server by new files version 1.0.7
+
+8) Replace the folder 'javascript/' on your server through the new folder 'javascript/' de la version 1.0.7
+
+9) Replace the folder 'languages/' on your server through the new folder 'languages/' de la version 1.0.7
+
+10) In the folder 'models/' replace the files 'AdModel.php', 'KeywordsOfSiteModel.php', and 'SiteModel.php' your server by new files version 1.0.7
+11) In the folder 'models/' upload the new files 'AllopassCodeModel.php', 'PackageModel.php', 'PaymentModel.php', 'PaymentProcessorModel.php', and 'SearchTagModel.php'on your server.
+
+12) Replace the folder 'moderation/' on your server through the new folder 'moderation/' version 1.0.7
+
+13) In the folder 'uploads/' upload the new folder 'images_packages/' on your server.
+
+14) In the folder 'views/' replace the files 'CaptchaView.php', et 'TemplateLiteView.php' your server by new files version 1.0.7
+
+
+
+
+15) the folder templates/  We will proceed to change line by line.
+These changes will take about 30 minutes.
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/category/list.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{if $setting.categoriesImages}
+        <img src="{'/uploads/images_categories/'|resurl}{$category.imageSrc}" alt="{$category.name}" class="category_image"/>
+{/if}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{if $setting.categoriesImages}
+        <img src="{"/uploads/images_categories/$category.imageSrc"|resurl}" alt="{$category.name}" class="category_image"/>
+{/if}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/css/style.css
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+.menuleft li.text_last, .menuright li.text_last {
+	display:block;
+	margin:0;
+	padding:0;
+	padding-left:5px;
+	color:#000000;
+	background-color:#ffffff;
+	border-bottom:1px #000000 solid;
+}
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+/*Menu right - Tag Cloud */
+
+/* cloudTag1*/
+.menuright li.cloudTag1 a, .menuright li.cloudTag1 a:link, .menuright li.cloudTag1 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.7em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag1 a:hover, .menuright li.cloudTag1 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.7em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag2*/
+.menuright li.cloudTag2 a, .menuright li.cloudTag2 a:link, .menuright li.cloudTag2 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.8em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag2 a:hover, .menuright li.cloudTag2 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.8em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag3*/
+.menuright li.cloudTag3 a, .menuright li.cloudTag3 a:link, .menuright li.cloudTag3 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.9em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag3 a:hover, .menuright li.cloudTag3 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.9em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag4*/
+.menuright li.cloudTag4 a, .menuright li.cloudTag4 a:link, .menuright li.cloudTag4 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.0em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag4 a:hover, .menuright li.cloudTag4 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.0em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag5*/
+.menuright li.cloudTag5 a, .menuright li.cloudTag5 a:link, .menuright li.cloudTag5 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.1em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag5 a:hover, .menuright li.cloudTag5 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.1em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag6*/
+.menuright li.cloudTag6 a, .menuright li.cloudTag6 a:link, .menuright li.cloudTag6 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.2em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag6 a:hover, .menuright li.cloudTag6 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.2em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag7*/
+.menuright li.cloudTag7 a, .menuright li.cloudTag7 a:link, .menuright li.cloudTag7 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.3em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag7 a:hover, .menuright li.cloudTag7 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.3em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag8*/
+.menuright li.cloudTag8 a, .menuright li.cloudTag8 a:link, .menuright li.cloudTag8 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.4em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag8 a:hover, .menuright li.cloudTag8 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.4em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag9*/
+.menuright li.cloudTag9 a, .menuright li.cloudTag9 a:link, .menuright li.cloudTag9 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.5em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag9 a:hover, .menuright li.cloudTag9 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.5em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag10*/
+.menuright li.cloudTag10 a, .menuright li.cloudTag10 a:link, .menuright li.cloudTag10 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.6em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag10 a:hover, .menuright li.cloudTag10 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.6em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+
+
+/* Menu left - Keyword */
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+#menuin li a:hover, #menuin li a:active {
+	padding-left:3px;
+	color:#ffffff;
+	background-color:#4079a9;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+/* MENU CHOOSE WEBSITE SUBMISSION */
+
+.column_in_choose_left {
+    float:left;
+    width:300px;
+    margin:0;
+    padding:7px;
+    margin-bottom:7px;
+    text-align:center;
+}
+
+.column_in_choose_right {
+    float:right;
+    width:300px;
+    margin:0;
+    padding:7px;
+    margin-bottom:7px;
+    text-align:center;
+}
+
+
+.menuchoose_left {
+    height:200px;
+    margin:0;
+    margin-bottom:20px;
+    padding:0;
+    font-size:2.5em;
+    text-transform:uppercase;
+}
+.menuchoose_right {
+    height:200px;
+    margin:0;
+    margin-bottom:20px;
+    padding:0;
+    font-size:2.2em;
+    text-transform:uppercase;
+}
+
+.menuchoose_left ul, .menuchoose_right ul {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}  
+
+.menuchoose_left li, .menuchoose_right li {
+    float:left;
+    width:270px;
+    padding:0;
+    margin:0;    
+    display:inline;
+} 
+
+.menuchoose_left li a, .menuchoose_left li a:link, .menuchoose_left li a:visited {
+    height:200px;
+    margin:0;
+    padding:0;
+    padding-left:7px;
+    display: block;
+    color:#ffffff;
+    background-color:transparent;
+    text-decoration:none;
+    line-height:180px;
+    voice-family:inherit;
+    background:url("../images/free.png") top no-repeat transparent;
+}
+
+.menuchoose_right li a, .menuchoose_right li a:link, .menuchoose_right li a:visited {
+    height:200px;
+    margin:0;
+    padding:0;
+    padding-left:20px;
+    display: block;
+    color:#ffffff;
+    background-color:transparent;
+    text-decoration:none;
+    line-height:180px;
+    voice-family:inherit;
+    background:url("../images/privilege.png") top no-repeat transparent;
+}
+
+.menuchoose_left li a:hover, .menuchoose_left li a:active {
+    height:200px;
+    margin:0;
+    padding:0;
+    padding-left:7px;
+    display: block;
+    color:#000000;
+    background-color:transparent;
+    text-decoration:none;
+    line-height:180px;
+}
+
+.menuchoose_right li a:hover, .menuchoose_right li a:active {
+    height:200px;
+    margin:0;
+    padding:0;
+    padding-left:20px;
+    display: block;
+    color:#000000;
+    background-color:transparent;
+    text-decoration:none;
+    line-height:180px;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+.text_thematic_close {
+	font-style:italic;
+	color:#574d44;
+	padding-left:4px;
+}
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+.text_center {
+    text-align:center;
+    font-weight:bold;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+img.flag_image {
+	float:left;
+	margin:0;
+	margin-top:2px;
+	margin-left:-30px;
+	padding:0;
+	width:18px;
+	height:12px;
+}
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+img.package_image {
+	float:right;
+	margin:0;
+	padding:0;
+}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/front/404.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<div class="column_in">
+La page que vous avez desirez atteindre n'existe pas (ou plus). Excusez-nous pour la gène occasionnée...
+</div>
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<div class="column_in">
+{'The page you want to achieve is not (or more). Excuse us for the inconvenience...'|lang}
+</div>
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/javascript/config.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+    setting.lang['The comment was deleted.'] = "{'The comment was deleted.'|lang}";
+    setting.lang['The IP was banned.'] = "{'The IP was banned.'|lang}";
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+    setting.lang['The comment was deleted.'] = "{'The comment was deleted.'|lang}";
+    setting.lang['The IP was banned.'] = "{'The IP was banned.'|lang}";
+    setting.lang['Please, select a package.'] = "{'Please, select a package.'|lang}";
+    setting.lang['Please, select a payment processor.'] = "{'Please, select a payment processor.'|lang}";
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/keyword/show.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{include file="includes/header.tpl" title="{'Keywords'|lang} - "|cat:$letter metaDescription="{'Directory of words starting with '|lang}"|cat:$letter}   
+
+<div class="show_arbo"> 
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{include file="includes/header.tpl" title="{'Keywords'|lang} - "|cat:$letter metaDescription="{'Directory of words starting with'|lang}"|cat:" "|cat:$letter}   
+
+<div class="show_arbo"> 
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+            <li><a href="{"/site/keyword/$keyword.keywordId/$keyword.keyword/1"|url}" title="{$keyword.keyword}">{$keyword.keyword}</a>
+                <span class="text_numbers">({$keyword.count})</span>
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+            <li><a href="{"/site/keyword/$keyword.keywordId/%s/1"|url:$keyword.keyword}" title="{$keyword.keyword}">{$keyword.keyword}</a>
+                <span class="text_numbers">({$keyword.count})</span>
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/menu/menuheader/menuheader.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<li id="last"><a href="{if $setting.registrationOfWebmastersEnabled && $setting.inscriptionsOfSitesEnabled}{'/webmaster/submitWebsite'|url}{else}{'/webmaster/submit1'|url}{/if}" title="{'Submit website'|lang}">{'Submit website'|lang}</a></li>	
+</ul>
+</div>
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<li id="last"><a href="{if $setting.registrationOfWebmastersEnabled}{'/webmaster/submitWebsite'|url}{else}{'/webmaster/submit1'|url}{/if}" title="{'Submit website'|lang}">{'Submit website'|lang}</a></li>	
+</ul>
+</div>
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/menu/menuright/menuright.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<div class="menuright">
+<ul>
+<li class="header">{'Contact'|lang}</li>
+<li class="last"><a href="{'/contact'|url}" title="{'Contact form'|lang}">{'Contact form'|lang}</a></li>
+</ul>
+</div>
+
+#
+#----[ AFTER ADD ]------------------------------------------
+#
+
+{if $setting.tagCloudEnabled}
+{"menu/displayTagCloud"|action}
+{/if}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+setting.commentPopupUrl = "{"/comment/popup/$site.siteId"|url}";
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{if $setting.commentsEnabled}
+setting.commentPopupUrl = "{"/comment/popup/$site.siteId"|url}";
+{/if}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{foreach from=$site.categoryParentsData value=category}
+    <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" class="link_showarbo"> {$category.name} </a> &gt;
+{/foreach}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{foreach from=$site.categoryParentsData value=category}
+    <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" class="link_showarbo">{$category.name}</a> &gt;
+{/foreach}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{if $setting.sitesImages}
+    <a href="{$site.url}" title="{$site.siteTitle}" class="link_black_grey_bold" onclick="return visitSite({$site.siteId})">
+    <img src="{$site.imageSrc}" alt="{$site.siteTitle}" class="website_image" />
+    </a>
+{/if}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{if $setting.sitesImages}
+    <a href="{$site.url}" rel="nofollow" class="link_black_grey_bold" onclick="return visitSite({$site.siteId})">
+    <img src="{$site.imageSrc}" alt="{$site.siteTitle}" class="website_image" />
+    </a>
+{/if}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+        {foreach from=$site.keywords value=keyword key=keywordId}
+            { math equation="x - 1" x=$counter assign="counter" }
+            <a href="{"/site/keyword/$keywordId/$keyword/1"|url}" title="{$keyword}" class="link_black_grey">{$keyword}</a>{if $counter > 0},{/if}
+        {/foreach}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+        {foreach from=$site.keywords value=keyword key=keywordId}
+            { math equation="x - 1" x=$counter assign="counter" }
+            <a href="{"/site/keyword/$keywordId/%s/1"|url:$keyword}" title="{$keyword}" class="link_black_grey">{$keyword}</a>{if $counter > 0},{/if}
+        {/foreach}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+    <td class="td_bold">{'Category'|lang}: </td>
+    <td>
+    <a href="{$setting.siteRootUrl}" class="link_black_grey">{'Directory'|lang}</a>
+    {foreach from=$site.categoryParentsData value=category}
+
+        &gt; <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" class="link_black_grey"> {$category.name} </a>
+
+    {/foreach}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+	<td class="td_bold">{'Category'|lang}: </td>
+	<td>
+    <a href="{$setting.siteRootUrl}" rel="nofollow" class="link_black_grey">{'Directory'|lang}</a> 
+    {foreach from=$site.categoryParentsData value=category}
+	&gt; <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" rel="nofollow" class="link_black_grey">{$category.name}</a>
+	{/foreach}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{if !empty($googleMap)}
+<div id="map" style="width:100%; height:300px">
+{$googleMap|htmlspecialchars_decode}
+</div>
+{/if}
+</div>
+{/if}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{if !empty($googleMap)}
+<div id="map" style="width:100%; height:300px">
+{$googleMap|htmlspecialchars_decode}
+</div>
+{/if}
+</div>
+{displayAd place="underInformationCompany"}
+{/if}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<span class="text_thematic_close">{$randomSite.description|truncate:$setting.randomSitesInDetailsDescriptionLength}</span>
+</div>
+{/foreach}
+</div>
+{/if}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<span class="text_thematic_close">{$randomSite.description|truncate:$setting.randomSitesInDetailsDescriptionLength}</span>
+</div>
+{/foreach}
+</div>
+{displayAd place="underThematicCloseWebsite"}
+{/if}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/site/item.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{if $setting.sitesImages}
+<a href="{$site.url}" title="{$site.siteTitle}" class="link_black_grey_bold" onclick="return visitSite({$site.siteId})">
+<img src="{$site.imageSrc}" alt="{$site.siteTitle}" class="website_image" />
+</a> 
+{/if}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{if $setting.sitesImages}
+<a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" title="{'Details'|lang} : {$site.siteTitle}" class="link_black_grey_bold">
+<img src="{$site.imageSrc}" alt="{'Details'|lang} : {$site.siteTitle}" class="website_image" />
+</a> 
+{/if}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{if !empty($site.isNew)}<img src="{'/templates/arfooo/images/new.gif'|resurl}" alt="{'New site'|lang}" />{/if}
+<br /><br />  
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{if !empty($site.isNew)}<img src="{'/templates/arfooo/images/new.gif'|resurl}" alt="{'New site'|lang}" />{/if}
+{if $site.packageImageSrc}
+<img src="{"/uploads/images_packages/$site.packageImageSrc"|resurl}" alt="" class="package_image" />
+{/if}
+<br /><br /> 
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{foreach from=$site.keywords value=keyword key=keywordId}
+<a href="{"site/keyword/$keywordId/$keyword/1"|url}" title="{$keyword}" class="link_black_grey">{$keyword}</a>
+{/foreach}  
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{foreach from=$site.keywords value=keyword key=keywordId}
+<a href="{"site/keyword/$keywordId/%s/1"|url:$keyword}" title="{$keyword}" class="link_black_grey">{$keyword}</a>
+{/foreach}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+</span>                     
+|                      
+<a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" title="{'Details'|lang} : {$site.siteTitle}" class="link_black_grey_bold">{'Details'|lang}</a>               
+</div>   
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+</span>                     
+|                      
+<a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" {if $setting.sitesImages == 0}title="{'Details'|lang} : {$site.siteTitle}"{/if} {if $setting.sitesImages}rel="nofollow"{/if} class="link_black_grey_bold">{'Details'|lang}</a>               
+</div>
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/site/keyword.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<a href="{$setting.siteRootUrl}" class="link_showarbo">{'Directory'|lang}</a> &gt;
+<a href="{"/site/keyword/$keyword.keywordId/$keyword.keyword/1"|url}" class="link_showarbo">{$keyword.keyword}</a>
+</div>
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<a href="{$setting.siteRootUrl}" class="link_showarbo">{'Directory'|lang}</a> &gt;
+<a href="{"/site/keyword/$keyword.keywordId/%s/1"|url:$keyword.keyword}" class="link_showarbo">{$keyword.keyword}</a>
+</div>
+
+
+
+
+
+16) In the folder 'templates/arfooo/webmaster/' replace the files 'manage.tpl', 'submit1.tpl', 'submit2.tpl', and 'submitWebsite.tpl' your server by new files version 1.0.7
+17) In the folder 'templates/arfooo/webmaster/' upload the new files 'chooseSiteType.tpl', 'loading.tpl', and 'submitDisabled.tpl' on your server.
+
+18) In the folder 'templates/arfooo/images/' upload the new files 'default.jpg', 'defaultCategoryImage.gif', 'free.png', and 'privilege.png' on your server.
+
+19) In the folder 'templates/arfooo/menu/menuright' upload the new file 'tagCloud.tpl' on your server.
+
+20) In the folder 'templates/arfooo/site/' upload the new file 'tag.tpl' on your server.
+
+21) In the folder 'templates/arfooo/' upload the new folder 'payment/' on your server.
+
+22) In the folder 'templates/arfooo/webmaster/' upload the new files 'chooseSiteType.tpl', 'loading.tpl', and 'submitDisabled.tpl' on your server.
+         
+
+
+23) Upload on your server the folder 'install/
+Once uploaded folder, go to the following url: http://www.your-site.com/folderarfooo/install/update/update107.php 
+
+24) !!!!!!! WARNING !!!!!!!! 
+25) Read the instructions if you could lose data, it is necessary to safeguard your database. 
+26) ONLY 1 Click on the button "Update Now!" "
+
+27) Delete the folder 'install/'
+
+28) Delete the contents of the folders 'cache/'and 'compiled/' except .htaccess file and update several times the page on your directory with your 
+browser (IE, Mozilla, Opera ...)
+
+
+If you encounter other problems a forum is at your disposal: 
+http://forum.arfooo.net
+
+
+

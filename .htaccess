@@ -1,0 +1,17 @@
+#Put the line here to enable PHP5
+
+#You may need to un-comment the following line
+#Options +FollowSymlinks
+
+# REMEBER YOU ONLY NEED TO STARD MOD REWRITE ONCE
+RewriteEngine On
+
+#REWRITE BASE
+#RewriteBase /
+
+# HERE IS A GOOD PLACE TO ADD THE WWW PREFIXE REDIRECTION
+
+# HERE IS A GOOD PLACE TO ADD THE OLD SCRIPT REDIRECTION
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php

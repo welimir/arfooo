@@ -1,0 +1,11 @@
+Below the various steps to update Arfooo Directory 
+From version 1.0.1 to version 1.0.2 
+
+1) Replace the following files by the new files in arfooo-1.0.2.zip: 
+core/Cacher.php
+admin/languages/fr.php
+admin/templates/arfooo/setting/index.tpl
+config/version.php
+
+And replace the entire folder 
+admin/javascript/setting

@@ -1,0 +1,479 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0.2 vers la version 1.0.3
+
+
+1) Faites une sauvegarde de votre base de données
+2) Uploader le dossier templates/arfooo/images/flags se trouvant dans la version 1.0.3 sur votre ftp
+3) SUpprimer tout le dossier contenant les fichiers Arfooo Annuaire SAUF :
+- le fichier config/db.php
+- le dossier upload/
+- le fichier .htaccess
+- le dossier templates/  Nous allons procéder au changement ligne par ligne.
+Ces changements prendront environs 5 minutes.
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/category/list.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<a href="{"/site/category/$category.categoryId/$category.name/1"|url}" title="{$category.name}">{$category.name}</a>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<a href="{"/site/category/$category.categoryId/%s/1"|url:$category.name}" title="{$category.name}">{$category.name}</a>
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<a href="{"/site/category/$subcategory.categoryId/$subcategory.name/1"|url}" title="{$subcategory.name}">{$subcategory.name}</a>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<a href="{"/site/category/$subcategory.categoryId/%s/1"|url:$subcategory.name}" title="{$subcategory.name}">{$subcategory.name}</a>
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/category/showAll.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+    {foreach from=$category.parents value=parent}
+        <a href="{"/site/category/$parent.categoryId/$parent.name/1"|url}" class="link_black_grey_bold">{$parent.name}</a><span class="text_numbers">({$parent.validatedSitesCount})</span> &gt;
+    {/foreach}
+    <a href="{"/site/category/$category.categoryId/$category.name/1"|url}" class="link_black_grey_bold">{$category.name}</a><span class="text_numbers">({$category.validatedSitesCount})</span> <br /> 
+{/foreach}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{foreach from=$category.parents value=parent}
+        <a href="{"/site/category/$parent.categoryId/%s/1"|url:$parent.name}" class="link_black_grey_bold">{$parent.name}</a><span class="text_numbers">({$parent.validatedSitesCount})</span> &gt;
+    {/foreach}
+    <a href="{"/site/category/$category.categoryId/%s/1"|url:$category.name}" class="link_black_grey_bold">{$category.name}</a><span class="text_numbers">({$category.validatedSitesCount})</span> <br /> 
+{/foreach}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/css/style.css
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+.show_arbo
+
+#
+#----[ AVANT AJOUTER ]------------------------------------------
+#
+
+.column_in_thematic {
+	float:left;
+	width:632px;
+	margin:0;
+	padding:0;
+	padding-bottom:2px;
+	margin-bottom:3px;
+	border-bottom:1px #574d44 dashed;
+}
+
+.column_in_subbmit {
+	float:left;
+	width:636px;
+	margin:0;
+	margin-top:4px;
+	padding:3px;
+	text-align:center;
+	font-weight:bold;
+	background-color:#efefef;
+}
+
+.column_in_subbmit_out {
+	float:left;
+	width:642px;
+	margin:0;
+	padding:0;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+a.link_black_grey_small
+
+#
+#----[ AVANT AJOUTER ]------------------------------------------
+#
+
+a.link_black_grey_normal { font-family:Tahoma, Verdana, Arial, sans-serif; }
+a.link_black_grey_normal:link, a.link_black_grey_normal:visited { color:#000000; text-decoration:none; }
+a.link_black_grey_normal:hover, a.link_black_grey_normal:active { color:#574d44; text-decoration:none; }
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+.text_red {
+	color:#ff0000;		
+}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+.text_thematic_close {
+	font-style:italic;
+	color:#574d44;
+	padding-left:4px;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+.textarea_large {
+	border:1px #000000 solid;
+	width:250px;
+	height:75px;
+	font-size:1em;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+.textarea_large {
+	border:1px #000000 solid;
+	width:350px;
+	height:110px;
+}
+
+.textarea_return {
+	border:1px #000000 solid;
+	width:300px;
+	height:90px;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+img.website_image {
+	float:left;
+	width:120px;
+	height:90px;
+	margin:0;
+	margin-right:10px;
+	padding:0;
+	border:1px #4079a9 solid;
+}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+img.flag_image {
+	float:left;
+	margin:0;
+	margin-top:2px;
+	margin-left:-30px;
+	padding:0;
+	width:18px;
+	height:12px;
+}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/menu/menuleft/categories.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<li><a href="{"/site/category/$category.categoryId/$category.name/1"|url}" title="{$category.name}">{$category.name}</a></li>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<li><a href="{"/site/category/$category.categoryId/%s/1"|url:$category.name}" title="{$category.name}">{$category.name}</a></li>
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/menu/menuright/menuright.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+ <li><a href="{$display.categoryRssHref}" title="{'Sites in this category'|lang}">{'Sites in this category'|lang}</a></li>                                
+{/if}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<li><a href="{$display.categoryRssHref}" title="{'Sites in this category'|lang}">{'Sites in this category'|lang}</a></li>
+{/if}
+{if $setting.rssSitesEnabled && isset($display.siteRssHref)}
+    <li><a href="{$display.siteRssHref}" title="{'Site'|lang}">{'Site'|lang}</a></li>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/category.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+    &gt; <a href="{"/site/category/$categoryParent.parentId/$categoryParent.name/1"|url}" class="link_showarbo"> {$categoryParent.name} </a> 
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+    &gt; <a href="{"/site/category/$categoryParent.parentId/%s/1"|url:$categoryParent.name}" class="link_showarbo"> {$categoryParent.name} </a> 
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+    <a href="{"/site/category/$category.parentId/$category.name/1"|url}" class="link_showarbo"> {$category.name} </a> &gt;     
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+    <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" class="link_showarbo"> {$category.name} </a> &gt;     
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<a href="{"/site/details/$site.siteId/$site.siteTitle"|url}" class="link_showarbo">{$site.siteTitle}</a>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" class="link_showarbo">{$site.siteTitle}</a>
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<div class="column_in_table4">
+<table class="table3" cellspacing="1">
+
+#
+#----[ AVANT AJOUTER ]------------------------------------------
+#
+
+{if $setting.countryFlagsEnabled && $site.countryCode} 
+<img src="{"/templates/arfooo/images/flags/$site.countryCode"|resurl}.png" alt="{$site.countryCode}" class="flag_image" />
+{/if}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+    <td><span class="text_characters_orange">{$site.url}</span></td>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+    <td><span class="text_characters_orange">{$site.url|domain}</span></td>
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+    {foreach from=$site.categoryParentsData value=category}
+
+        &gt; <a href="{"/site/category/$category.parentId/$category.name/1"|url}" class="link_black_grey"> {$category.name} </a>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+    {foreach from=$site.categoryParentsData value=category}
+
+        &gt; <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" class="link_black_grey"> {$category.name} </a>
+
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{include file="includes/footer.tpl"} 
+
+
+#
+#----[ AVANT AJOUTER ]------------------------------------------
+#
+
+{if !empty($randomSites)}
+<div class="title_h_2_out">
+<div class="title_h_2">
+<h2>{'Thematic close to'|lang} {$site.siteTitle}</h2>
+</div>
+</div>
+<div class="column_in">
+{foreach from=$randomSites value=randomSite}
+<div class="column_in_thematic">
+<a href="{"/site/details/$randomSite.siteId/%s"|url:$randomSite.siteTitle}" title="{$randomSite.siteTitle}" class="link_black_grey_normal">{$randomSite.siteTitle}</a><br />
+<span class="text_thematic_close">{$randomSite.description|truncate:$setting.randomSitesInDetailsDescriptionLength}</span>
+</div>
+{/foreach}
+</div>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/item.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if $setting.sitesImages}
+<a href="{$site.url}" title="{$site.siteTitle}" class="link_black_grey_bold" onclick="return visitSite({$site.siteId})">
+<img src="{$site.imageSrc}" alt="{$site.siteTitle}" class="website_image" />
+</a> 
+{/if}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+{if $setting.countryFlagsEnabled && $site.countryCode}
+<img src="{"/templates/arfooo/images/flags/$site.countryCode"|resurl}.png" alt="{$site.countryCode}" class="flag_image" />
+{/if} 
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#   
+
+<span class="text_characters_orange">
+{if isset($display.highlightKeywords)}
+{$site.url|highlight:$display.highlightKeywords}                           
+{else}
+{$site.url}
+{/if}
+</span>                     
+|                      
+<a href="{"/site/details/$site.siteId/$site.siteTitle"|url}" title="{'Details'|lang} : {$site.siteTitle}" class="link_black_grey_bold">{'Details'|lang}</a>                       
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+# 
+
+<span class="text_characters_orange">
+{if isset($display.highlightKeywords)}
+{$site.url|domain|highlight:$display.highlightKeywords}                           
+{else}
+{$site.url|domain}
+{/if}
+</span>                     
+|                      
+<a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" title="{'Details'|lang} : {$site.siteTitle}" class="link_black_grey_bold">{'Details'|lang}</a>
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/randomList.tpl     
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#  
+
+{foreach from=$randomSites value=site}
+    <a href="{"/site/details/$site.siteId/$site.siteTitle"|url}" title="{$site.siteTitle|htmlspecialchars}" >
+    <img alt="{$site.siteTitle|htmlspecialchars}" src="{$site.imageSrc}" class="random_image" />
+    </a> 
+{/foreach}  
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+# 
+
+{foreach from=$randomSites value=site}
+    <a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" title="{$site.siteTitle}" >
+    <img alt="{$site.siteTitle}" src="{$site.imageSrc}" class="random_image" />
+    </a> 
+{/foreach}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/webmaster/manage.tpl  
+
+#
+#----[ RECHERCHER ]------------------------------------------
+# 
+
+    <td><a href="{"/site/details/$site.siteId/$site.siteTitle"|url}" title="{'See the site in the directory'|lang}">{'Go'|lang}</a></td>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+# 
+
+    <td><a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" title="{'See the site in the directory'|lang}">{'Go'|lang}</a></td>
+
+
+
+4) Pour les fichiers :
+- templates/arfooo/webmaster/submit2.tpl  et
+- templates/arfooo/webmaster/submitWebsite.tpl 
+Remplacer ces anciens fichiers par les nouveaux fichier de arfooo annuaire 1.0.3
+
+
+
+rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/
+
+5) !!!!!!! ATTENTION !!!!!!!!
+6) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+7) Cliquer 1 SEULE FOIS sur le fichier "update103.php"
+8) Rendez-vous sur votre annuaire dans la partie visiteur et non admin et regardez si des caractères étranges apparaissent.
+
+9) SI DES CARACTERES ETRANGES APPARAISSENT ET UNIQUEMENT SI DES CARACTERES ETRANGES APPARAISSENT, cliquer 1 SEULE FOIS sur le fichier "fixdb.php"
+10) Supprimer le dossier "install/"
+
+Si vous rencontrez d'autres problèmes un forum est à votre disposition :
+http://forum.arfooo.com
+
+

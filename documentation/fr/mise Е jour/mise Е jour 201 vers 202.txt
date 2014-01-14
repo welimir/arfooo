@@ -1,0 +1,602 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 2.0.1 vers la version 2.0.2
+
+
+1) Faites une sauvegarde de votre base de données 
+
+2) Remplacer le dossier '/admin/' de votre serveur par le nouveau dossier de la version 2.0.2
+
+3) Remplacer le dossier '/components/' de votre serveur par le nouveau dossier de la version 2.0.2
+
+4) Dans le dossier '/config/' remplacer les fichiers 'version.php' et 'main.php' de votre serveur par les nouveaux fichiers de la version 2.0.2
+
+5) Remplacer le dossier '/controllers/' de votre serveur par le nouveau dossier de la version 2.0.2
+
+6) Remplacer le dossier '/javascript/' de votre serveur par le nouveau dossier de la version 2.0.2
+
+7) Remplacer le dossier '/languages/' de votre serveur par le nouveau dossier de la version 2.0.2
+
+8) Remplacer le dossier '/models/' de votre serveur par le nouveau dossier de la version 2.0.2
+
+9) Remplacer le dossier '/moderation/' de votre serveur par le nouveau dossier de la version 2.0.2
+
+10) Dans le dossier '/views/' remplacer les fichiers 'AppTemplateLiteView.php' et 'TemplateLiteView.php' de votre serveur par les nouveaux fichiers de la version 2.0.2
+
+
+
+
+11) le dossier /templates/  Nous allons procéder au changement ligne par ligne.
+Ces changements prendront environs 20 minutes.
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/comment/popup.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<link href="{'/templates/arfooo/jquery/jquery-rating/jquery.rating.css'|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<link href="{"/templates/$templateName/jquery/jquery-rating/jquery.rating.css"|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/contact/index.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<link href="{'/templates/arfooo/jquery/theme/ui.all.css'|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<link href="{"/templates/$templateName/jquery/theme/ui.all.css"|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/css/style.css
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+#principal {
+	position:relative;
+	width:1000px;
+	left:50%;
+	margin-left:-500px;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+#principal {
+	position:relative;
+	width:1000px;
+	margin:0 auto;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+#column_bottom {
+	position:relative;
+    width:1000px;
+	left:50%;
+	margin:0 0 0 -500px;
+    padding:17px 0 0 0;
+	font-size:0.8em;
+	text-align:center;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+#column_bottom {
+	position:relative;
+    width:1000px;
+	margin:0 auto;
+    padding:17px 0 0 0;
+	font-size:0.8em;
+	text-align:center;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+.column_in_comment_grey {
+	float:left;
+	width:752px;
+	margin:0;
+	padding:7px 0 7px 0;
+	background-color:#f4f4f4;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+.column_in_comment_grey {
+	float:left;
+	width:752px;
+	margin:0;
+	padding:7px 0 7px 0;
+	background-color:#f4f4f4;
+}
+
+.column_in_comment_in {
+	float:left;
+	width:752px;
+	margin:0;
+	padding:0 0 7px 0;
+}
+
+.column_in_comment_in_left {
+	float:left;
+	margin:0;
+	padding:0 7px 0 0;
+}
+
+.column_in_comment_in_right {
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+label {
+    float:left;
+    margin:0;
+    padding:0;
+    line-height:1.8em;
+}
+
+label.title {
+    width:142px;
+    padding-right:17px;
+    font-weight:bold;
+    text-align:right;
+}
+
+div.infos {
+    float: left;
+	width:435px;
+    margin:0;
+    padding:0 0 0 7px;
+    line-height:1.8em;
+    text-align:left;
+}
+
+div.infos_terms {
+    float: left;
+	width:570px;
+    margin:0;
+    padding:0 0 0 7px;
+    line-height:1.8em;
+    text-align:left;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+label {
+    float:left;
+    margin:0;
+    padding:0;
+    line-height:1.5em;
+}
+
+label.title {
+    width:142px;
+    padding:0 17px 0 0;
+	font-size:0.9em;
+    font-weight:bold;
+    text-align:right;
+}
+
+div.infos {
+    float: left;
+	width:435px;
+    margin:0;
+    padding:0 0 0 7px;
+    line-height:1.5em;
+    text-align:left;
+}
+
+div.infos_textarea {
+    float: left;
+	width:365px;
+    margin:0;
+    padding:0;
+}
+
+div.infos_terms {
+    float: left;
+	width:570px;
+    margin:0;
+    padding:0 0 0 7px;
+    line-height:1.7em;
+    text-align:left;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+div.infos_details {
+	float: left;
+    width:377px;
+	line-height: 1.8em;
+    margin:0;
+    padding:0 0 0 7px;
+    text-align:left;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+div.infos_details {
+	float: left;
+    width:377px;
+	line-height: 1.5em;
+    margin:0;
+    padding:0 0 0 7px;
+    text-align:left;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+fieldset.column_in_popup {
+    float: left;
+    width:480px;
+	line-height:1.8em;
+    margin:7px 0 7px 0;
+    padding:0;
+    text-align:right;
+	border:none;
+}
+
+label.title_popup {
+    width:105px;
+	margin:0;
+    padding:0 17px 0 0;
+    font-weight:bold;
+    text-align:right;
+}
+
+div.infos_popup {
+	float: left;
+    width:295px;
+	line-height:1.8em;
+    margin:0;
+    padding:0 0 0 7px;
+    text-align:left;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+fieldset.column_in_popup {
+    float: left;
+    width:480px;
+    margin:7px 0 7px 0;
+    padding:0;
+    text-align:right;
+	border:none;
+}
+
+label.title_popup {
+    width:105px;
+	margin:0;
+    padding:0 17px 0 0;
+    font-weight:bold;
+    text-align:right;
+}
+
+div.infos_popup {
+	float: left;
+    width:295px;
+	line-height:1.5em;
+    margin:0;
+    padding:0 0 0 7px;
+    text-align:left;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+a { font-family:Tahoma, Verdana, Arial, sans-serif; }
+a:link, a:visited { color:#000000; text-decoration:none; }
+a:hover, a:active { color:#574d44; text-decoration:none; }
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+a { font-family:Tahoma, Verdana, Arial, sans-serif; }
+a:link, a:visited { color:#1e6dab; text-decoration:none; }
+a:hover, a:active { color:#574d44; text-decoration:none; }
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+a.link_small_underline:hover, a.link_small_underline:active { color:#574d44; text-decoration:underline; }
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+a.link_small_underline:hover, a.link_small_underline:active { color:#574d44; text-decoration:underline; }
+
+a.link_black_grey { font-family:Tahoma, Verdana, Arial, sans-serif; }
+a.link_black_grey:link, a.link_black_grey:visited { color:#000000; text-decoration:none; }
+a.link_black_grey:hover, a.link_black_grey:active { color:#574d44; text-decoration:none; }
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+.textarea_extra_large {
+	float:left;
+	border:1px #000000 solid;
+	width:400px;
+	height:200px;
+}
+
+.textarea_return {
+	float:left;
+	border:1px #000000 solid;
+	width:300px;
+	height:90px;
+}
+
+p { 
+	margin:0;
+	padding:0; 
+}			
+
+img { 
+	border:0;
+	margin:0;
+	padding:0;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+.textarea_extra_large {
+	float:left;
+	border:1px #000000 solid;
+	width:360px;
+	height:200px;
+}
+
+.textarea_return {
+	float:left;
+	border:1px #000000 solid;
+	width:300px;
+	height:90px;
+}
+
+/* EXTRA FIELD : TEXTAREA, SELECT, INPUT... */
+
+.extraField_textarea{
+	float:left;
+	border:1px #000000 solid;
+	width:350px;
+	height:110px;
+}
+
+.extraField_text{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_select{
+}
+
+.extraField_radio{
+}
+
+.extraField_checkbox{
+}
+
+.extraField_range{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_url_url{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_url_anchor{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_file_file{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_file_title{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+/* RESET P */
+p { 
+	margin:0;
+	padding:0; 
+}			
+
+/* IMAGES */
+img { 
+	border:0;
+	margin:0;
+	padding:0;
+}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/includes/header.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<link href="{'/templates/arfooo/css/style.css'|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<link href="{"/templates/$templateName/css/style.css"|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/includes/pageNavigation.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<img src="{'/templates/arfooo/images/leftNavigationArrow.gif'|resurl}" style="vertical-align:middle;" alt="{if !empty($pageNavigation.title)}{$pageNavigation.title} - {'includesPageNavigation_page'|lang} {$previousPage}{else}left arrow{/if}" />
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<img src="{"/templates/$templateName/images/leftNavigationArrow.gif"|resurl}" style="vertical-align:middle;" alt="{if !empty($pageNavigation.title)}{$pageNavigation.title} - {'includesPageNavigation_page'|lang} {$previousPage}{else}left arrow{/if}" />
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<img src="{'/templates/arfooo/images/rightNavigationArrow.gif'|resurl}" style="vertical-align:middle;" alt="{if !empty($pageNavigation.title)}{$pageNavigation.title} - {'includesPageNavigation_page'|lang} {$nextPage}{else}right arrow{/if}"/>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<img src="{"/templates/$templateName/images/rightNavigationArrow.gif"|resurl}" style="vertical-align:middle;" alt="{if !empty($pageNavigation.title)}{$pageNavigation.title} - {'includesPageNavigation_page'|lang} {$nextPage}{else}right arrow{/if}"/>
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/info/useCondition.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<div class="column_in2">
+{$directoryCondition.description|htmlspecialchars_decode|nl2br} 
+</div>
+
+{include file="includes/footer.tpl"}    
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<div class="column_in">
+{$directoryCondition.description|htmlspecialchars_decode|nl2br} 
+</div>
+
+{include file="includes/footer.tpl"}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/newsletter/index.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<link href="{'/templates/arfooo/jquery/theme/ui.all.css'|resurl}" rel="stylesheet" type="text/css" /> 
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<link href="{"/templates/$templateName/jquery/theme/ui.all.css"|resurl}" rel="stylesheet" type="text/css" />
+
+
+
+
+
+12) Dans le dossier '/templates/arfooo/css/' remplacer le fichier 'upload.css' de votre serveur par le nouveau fichier de la version 2.0.2
+
+13) Dans le dossier '/templates/arfooo/extraField/' remplacer le fichier 'itemForm.tpl' de votre serveur par le nouveau fichier de la version 2.0.2
+
+14) Remplacer le dossier '/templates/arfooo/javascript/' par le nouveau dossier de la version 2.0.2
+
+15) Remplacer le dossier '/templates/arfooo/jquery/' par le nouveau dossier de la version 2.0.2
+
+16) Remplacer le dossier '/templates/arfooo/payment/' par le nouveau dossier de la version 2.0.2
+
+17) Remplacer le dossier '/templates/arfooo/site/' par le nouveau dossier de la version 2.0.2
+
+18) Remplacer le dossier '/templates/arfooo/webmaster/' par le nouveau dossier de la version 2.0.2
+
+19) Uploader le dossier /templates/arfooo/photo/ sur votre serveur
+
+
+
+
+
+20) Uploader sur votre serveur le dossier '/install/'
+puis rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/update202.php
+
+21) !!!!!!! ATTENTION !!!!!!!!
+22) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+23) Cliquer 1 SEULE FOIS sur le bouton "Update Now!"
+
+24) Supprimer le dossier '/install/'
+
+25) Supprimer le contenu des dossiers '/cache/' et '/compiled/' sauf les .htaccess et actualiser plusieurs fois la page de votre annuaire à l'aide de votre
+navigateur (IE, Mozilla, Opera...)
+
+Si vous rencontrez d'autres problèmes ou voulez plus de détail sur la modification des fichiers, un forum est à votre disposition :
+http://forum.arfooo.com
+
+

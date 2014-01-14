@@ -1,0 +1,408 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0.7 vers la version 1.0.8
+
+
+1) Faites une sauvegarde de votre base de données
+
+2) Remplacer le dossier 'admin/' de votre serveur par le nouveau dossier 'admin/' de la version 1.0.8
+
+3) Remplacer le dossier 'components/' de votre serveur par le nouveau dossier 'components/' de la version 1.0.8
+
+4) Dans le dossier 'config/' remplacer le fichier 'version.php' de votre serveur par les nouveaux fichiers de la version 1.0.8
+
+5) Dans le dossier 'controllers/' remplacer les fichiers 'CommentController.php', 'MenuController.php', 'SiteController.php' et 'WebmasterController.php' de votre serveur par les nouveaux fichiers de la version 1.0.8
+6) Uploder sur votre serveur le nouveau fichier 'controllers/NewsletterController.php' de la version 1.0.8
+
+7) Dans le dossier 'core/' remplacer les fichiers 'ErrorHandler.php' et 'Session.php'de votre serveur par les nouveaux fichiers de la version 1.0.8
+
+8) Remplacer le dossier 'javascript/' de votre serveur par le nouveau dossier 'javascript/' de la version 1.0.8
+
+9) Remplacer le dossier 'languages/' de votre serveur par le nouveau dossier 'languages/' de la version 1.0.8
+
+10) Dans le dossier 'models/' remplacer les fichiers 'AdModel.php', 'CommentModel.php', 'OtherReferrerSiteModel.php', 'RefusalModel.php', 'SearchTagModel.php', 'SiteModel.php', et 'StatisticModel.php' de votre serveur par les nouveaux fichiers de la version 1.0.8
+11) Dans le dossier 'models/' uploader les nouveaux fichiers 'BannedTagModel.php', 'NewsletterEmailModel.php' et 'VerificationModel.php' sur votre serveur.
+
+12) Remplacer le dossier 'moderation/' de votre serveur par le nouveau dossier 'moderation/' de la version 1.0.8
+
+13) Dans le dossier 'views/' remplacer le fichier 'TemplateLiteView.php' de votre serveur par le nouveaux fichier de la version 1.0.8
+
+
+
+
+14) le dossier templates/  Nous allons procéder au changement ligne par ligne.
+Ces changements prendront environs 15 à 20 minutes.
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/css/style.css
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+.column_in_thematic {
+	float:left;
+	width:632px;
+	margin:0;
+	padding:0;
+	padding-bottom:2px;
+	margin-bottom:3px;
+	border-bottom:1px #574d44 dashed;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+.column_in_thematic {
+	float:left;
+	width:642px;
+	margin:0;
+	padding:0;
+	padding-bottom:2px;
+	margin-bottom:3px;
+	border-bottom:1px #574d44 dashed;
+}
+
+.column_in_comment {
+	float:left;
+	width:642px;
+	margin:0;
+	padding:0;
+	padding-top:7px;
+	padding-bottom:7px;
+	border-bottom:1px #574d44 dashed;
+}
+
+.column_in_comment_grey {
+	float:left;
+	width:642px;
+	margin:0;
+	padding:0;
+	padding-top:7px;
+	padding-bottom:7px;
+	border-bottom:1px #574d44 dashed;
+	background-color:#efefef;
+}
+
+.column_in_comment_add {
+	float:left;
+	width:642px;
+	margin:0;
+	padding:0;
+	padding-top:30px;
+	padding-bottom:2px;
+	margin-bottom:10px;
+	border-bottom:1px #574d44 dashed;
+	font-weight:bold;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+.text_center {
+    text-align:center;
+    font-weight:bold;
+}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+.text_comment {
+	font-size:0.8em;
+    color:#574d44;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+input.searchbutton {
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+input.newsletter_input {
+	width:144px;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+input.searchbutton {
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+input.subutton {
+	width:62px;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+input.unsubutton {
+	width:82px;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/menu/menuleft/menuleft.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if $setting.keywordsEnabled}{"menu/displayKeywords"|action}{/if}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+{if $setting.newsletterEnabled}
+
+<div class="menuleft">
+<ul>
+<li class="header">{'Newsletter'|lang}</li>
+<li class="text_last">
+<form action="{'/newsletter/setEmail'|url}" method="post" id="newsletter_form">
+<p>
+<input class="newsletter_input" type="text" name="email" value="" onfocus="this.value=''" /><br/>
+<input type="submit" name="addEmail" value="{'Subscribe'|lang}" class="subutton" />
+<input type="submit" name="deleteEmail" value="{'Unsubscribe'|lang}" class="unsubutton" /> 
+</p>
+</form>
+</li>
+</ul>
+</div>
+
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/menu/menuleft/statistics.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if isset($statistic.refusedSitesCount)}<li class="text">{'Websites Refused'|lang} : {$statistic.refusedSitesCount}</li>
+{/if}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+{if isset($statistic.bannedSitesCount)}<li class="text">{'Websites Banned'|lang} : {$statistic.bannedSitesCount}</li>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<script type="text/javascript" src="{'/javascript/site/VisitSite.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/site/PopupWindow.js'|resurl}"></script>
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+{if $setting.commentsDisplayMethod == "siteDetails"}
+<script type="text/javascript" src="{'/javascript/webmaster/FormEditor.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/captcha/CaptchaCode.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/comment/Comment.js'|resurl}"></script>
+{/if}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<div class="column_in_details_middle">
+{if $setting.commentsEnabled}
+<a href="{"/comment/popup/$site.siteId"|url}" title="{'Write a comment'|lang}" class="link_black_grey_underline" rel="nofollow" id="commentPopupLink">{'Write a comment'|lang}</a>
+{/if}
+</div>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<div class="column_in_details_middle">
+{if $setting.commentsEnabled}
+{if $setting.commentsDisplayMethod == "popup"}
+<a href="{"/comment/popup/$site.siteId"|url}" title="{'Write a comment'|lang}" class="link_black_grey_underline" rel="nofollow" id="commentPopupLink">{'Write a comment'|lang}</a>
+{else}
+<a href="#commentPost" title="{'Write a comment'|lang}" class="link_black_grey_underline" rel="nofollow">{'Write a comment'|lang}</a> 
+{/if}
+{/if}
+</div>
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if !empty($googleMap)}
+<div id="map" style="width:100%; height:300px">
+{$googleMap|htmlspecialchars_decode}
+</div>
+{/if}
+</div>
+{displayAd place="underInformationCompany"}
+{/if}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+{if $setting.commentsDisplayMethod == "siteDetails" && ($displayCommentForm || !empty($comments))}
+<div class="title_h_2_out">
+<div class="title_h_2" id="commentPost">
+<h2>{'Comments'|lang}: {$site.siteTitle}</h2>
+</div>
+</div>
+<div class="column_in">
+<!-- Comment Item -->
+{foreach from=$comments value=comment}
+<div class="column_in_comment{cycle values='_grey,'}">
+{$comment.pseudo} <span class="text_comment">{'wrote on'|lang}, {$comment.date|strtotime|date:$setting.dateFormat}:</span><br /><br />
+{$comment.text|nl2br} 
+</div>
+
+{/foreach}
+<!-- END Comment Item -->
+{if $displayCommentForm}
+<div class="column_in_comment_add">
+Ajouter un commentaire
+</div>
+
+<div class="column_in_table3">
+<form action="{"/comment/saveComment/$site.siteId"|url}" method="post" id="commentForm">
+
+<table cellspacing="1">
+<tbody>
+<tr>
+    <td>{'Pseudo'|lang}: </td>
+    <td><input type="text" class="input_text_medium" name="pseudo" value="" /></td>
+</tr>
+<tr>
+    <td>{'Comment'|lang}: </td>
+    <td><textarea class="textarea_large" name="text" cols="31" rows="5"></textarea></td>
+</tr>
+{if $setting.captchaEnabledOnComments}
+<tr>
+    <td>{'Security code'|lang}: </td>
+    <td>{'Captcha/show/link_black_grey_small'|action}</td>
+</tr>
+{/if}
+<tr>
+    <td></td>
+    <td><input type="submit" class="button" value="{'Comment'|lang}" /></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+{/if}
+</div>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/keyword.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<div class="title_h_1">
+<h1>{$keyword.keyword}</h1>
+</div>
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+{if !empty($keyword.description)}
+<div class="column_in">{$keyword.description|htmlspecialchars_decode|nl2br}</div>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/webmaster/logIn.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<div class="column_in_table2" id="webmasterInscriptionBlockContent">
+<form id="webmasterInscriptionForm" method="post" action="" onsubmit="return validateAndRegisterWebmaster('{'Please, enter a valid e-mail address.'|lang}', '{'Passwords are not equall.'|lang}', '{'Please enter a not-empty password.'|lang}', '{'Please, use another e-mail. This one is busy.'|lang}', '{'The registration was successful! You can login now.'|lang}', '{'You did not guess the security code. Try again with a new one.'|lang}');">
+<table class="table2" cellspacing="1">
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<div class="column_in_table2" id="webmasterInscriptionBlockContent">
+<form id="webmasterInscriptionForm" method="post" action="" onsubmit="return validateAndRegisterWebmaster('{'Please, enter a valid e-mail address.'|lang}', '{'Passwords are not equall.'|lang}', '{'Please enter a not-empty password.'|lang}', '{'Please, use another e-mail. This one is busy.'|lang}', '{if $setting.emailConfirmationEnabled}{'The registration was successful! You must confirm your email. Check your inbox.'|lang}{else}{'The registration was successful! You can login now.'|lang}{/if}', '{'You did not guess the security code. Try again with a new one.'|lang}');">
+<table class="table2" cellspacing="1">
+
+
+
+
+
+
+15) Dans le dossier 'templates/arfooo/comment/' remplacer le fichier 'popup.tpl' de votre serveur par le nouveau fichier de la version 1.0.8
+
+16) Dans le dossier 'templates/arfooo/includes/' remplacer le fichier 'pageNavigation.tpl' de votre serveur par le nouveau fichier de la version 1.0.8
+
+17) Dans le dossier 'templates/arfooo/javascript/' remplacer le fichier 'config.tpl' de votre serveur par le nouveau fichier de la version 1.0.8
+
+18) Dans le dossier 'templates/arfooo/webmaster/' remplacer les fichiers 'submit2.tpl' et 'submitWebsite.tpl' de votre serveur par les nouveaux fichiers de la version 1.0.8
+19) Dans le dossier 'templates/arfooo/webmaster/' uploader les nouveaux fichiers 'confirmSiteEmail.tpl' et 'confirmUserEmail.tpl' sur votre serveur.
+
+20) Dans le dossier 'templates/arfooo/ uploader le nouveau dossier 'newsletter/' sur votre serveur.
+
+
+
+         
+
+
+21) Uploader sur votre serveur le dossier 'install/'
+puis rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/update108.php
+
+22) !!!!!!! ATTENTION !!!!!!!!
+23) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+24) Cliquer 1 SEULE FOIS sur le bouton "Update Now!"
+
+25) Supprimer le dossier 'install/'
+
+26) Supprimer le contenu des dossiers 'cache/' et 'compiled/' sauf les .htaccess et actualiser plusieurs fois la page de votre annuaire à l'aide de votre
+navigateur (IE, Mozilla, Opera...)
+
+Si vous rencontrez d'autres problèmes ou voulez plus de détail sur la modification des fichiers, un forum est à votre disposition :
+http://forum.arfooo.com
+
+
+

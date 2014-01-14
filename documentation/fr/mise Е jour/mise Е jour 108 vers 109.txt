@@ -1,0 +1,154 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0.8 vers la version 1.0.9
+
+
+1) Faites une sauvegarde de votre base de données
+
+2) Remplacer le dossier 'admin/' de votre serveur par le nouveau dossier 'admin/' de la version 1.0.9
+
+3) Dans le dossier 'components/' remplacer le fichier 'AllopassPaymentProcessor.php', 'Mailer.php', 'NewsletterBackgroundTask.php', 'PaymentProcessor.php', 'PayPalPaymentProcessor.php' et 'UploadedFile.php' de votre serveur par les nouveaux fichiers de la version 1.0.9
+
+4) Dans le dossier 'config/' remplacer le fichier 'version.php' de votre serveur par les nouveaux fichiers de la version 1.0.9
+
+5) Dans le dossier 'controllers/' remplacer les fichiers 'CategoryController.php', 'CommentController.php', 'ContactController.php', 'MainController.php', 'PaymentController.php', 'SiteController.php', 'VoteController.php' et'WebmasterController.php' de votre serveur par les nouveaux fichiers de la version 1.0.9
+
+6) Dans le dossier 'core/' remplacer les fichiers 'Controller.php' et 'FrontController.php'de votre serveur par les nouveaux fichiers de la version 1.0.9
+
+7) Remplacer le dossier 'javascript/' de votre serveur par le nouveau dossier 'javascript/' de la version 1.0.9
+
+8) Remplacer le dossier 'languages/' de votre serveur par le nouveau dossier 'languages/' de la version 1.0.9
+
+9) Dans le dossier 'models/' remplacer les fichiers 'CommentModel.php', 'OtherReferrerSiteModel.php' et 'SiteModel.php' de votre serveur par les nouveaux fichiers de la version 1.0.9
+
+
+
+
+10) le dossier templates/  Nous allons procéder au changement ligne par ligne.
+Ces changements prendront environs 5 minutes.
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/javascript/config.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+    setting.lang['Please, enter a comment.'] = "{'Please, enter a comment.'|lang}";
+    setting.lang['Please, enter the protection code.'] = "{'Please, enter the protection code.'|lang}";
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+    setting.lang['Please, enter a comment.'] = "{'Please, enter a comment.'|lang}";
+    setting.lang['Please, enter the protection code.'] = "{'Please, enter the protection code.'|lang}";
+    setting.lang['The tag was saved.'] = "{'The tag was saved.'|lang}";
+    setting.lang['You can`t select this payment method for selected package.'] = "{'You can`t select this payment method for selected package.'|lang}";
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/menu/menuheader/menuheader.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if !empty($setting.topReferrersEnabled)}<li><a href="{'/site/topReferrers'|url}" title="{'Top referrers'|lang}">{'Top referrers'|lang}</a></li>
+{/if}<li><a href="{'/category/showAll'|url}" title="{'All categories'|lang}">{'All categories'|lang}</a></li>
+
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if !empty($setting.topReferrersEnabled)}<li><a href="{'/site/topReferrers'|url}" title="{'Top referrers'|lang}">{'Top referrers'|lang}</a></li>
+{/if}
+{if !empty($setting.allCategoriesPageEnabled)}<li><a href="{'/category/showAll'|url}" title="{'All categories'|lang}">{'All categories'|lang}</a></li>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/menu/menuright/menuright.tpl
+
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<div class="menuright">
+<ul>
+<li class="header">{'Contact'|lang}</li>
+<li class="last"><a href="{'/contact'|url}" title="{'Contact form'|lang}">{'Contact form'|lang}</a></li>
+</ul>
+</div>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if $setting.contactPageEnabled}
+<div class="menuright">
+<ul>
+<li class="header">{'Contact'|lang}</li>
+<li class="last"><a href="{'/contact'|url}" title="{'Contact form'|lang}">{'Contact form'|lang}</a></li>
+</ul>
+</div>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/payment/selectPaymentOptions.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{capture assign="headData"}
+<script type="text/javascript" src="{'/javascript/config'|url}"></script> 
+<script type="text/javascript" src="{'/javascript/core/engine.js'|resurl}"></script> 
+<script type="text/javascript" src="{'/javascript/payment/SelectPaymentOptionsOnLoad.js'|resurl}"></script>
+{/capture}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{capture assign="headData"}
+<script type="text/javascript" src="{'/javascript/config'|url}"></script> 
+<script type="text/javascript" src="{'/javascript/core/engine.js'|resurl}"></script> 
+<script type="text/javascript" src="{'/javascript/payment/SelectPaymentOptionsOnLoad.js'|resurl}"></script>
+<script type="text/javascript">
+setting.allopassNumbers = {$allopassNumbersJSON};
+</script>
+{/capture}
+
+
+
+
+
+
+11) Uploader sur votre serveur le dossier 'install/'
+puis rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/update109.php
+
+12) !!!!!!! ATTENTION !!!!!!!!
+13) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+14) Cliquer 1 SEULE FOIS sur le bouton "Update Now!"
+
+15) Supprimer le dossier 'install/'
+
+16) Supprimer le contenu des dossiers 'cache/' et 'compiled/' sauf les .htaccess et actualiser plusieurs fois la page de votre annuaire à l'aide de votre
+navigateur (IE, Mozilla, Opera...)
+
+Si vous rencontrez d'autres problèmes ou voulez plus de détail sur la modification des fichiers, un forum est à votre disposition :
+http://forum.arfooo.com
+
+
+

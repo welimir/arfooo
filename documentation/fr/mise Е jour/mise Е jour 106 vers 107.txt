@@ -1,0 +1,886 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0.6 vers la version 1.0.7
+
+
+1) Faites une sauvegarde de votre base de données
+
+2) Remplacer le dossier 'admin/' de votre serveur par le nouveau dossier 'admin/' de la version 1.0.7
+
+3) Remplacer le dossier 'components/' de votre serveur par le nouveau dossier 'components/' de la version 1.0.7
+
+4) Dans le dossier 'config/' remplacer les fichiers 'flags.php', 'main.php', 'rewrite.php' et 'version.php' de votre serveur par les nouveaux fichiers de la version 1.0.7
+
+5) Dans le dossier 'controllers/' remplacer les fichiers 'KeywordController.php', 'MainController.php', 'MenuController.php', 'SiteController.php' et 'WebmasterController.php' de votre serveur par les nouveaux fichiers de la version 1.0.7
+6) Uploder sur votre serveur le nouveau fichier 'controllers/PaymentController.php' de la version 1.0.7
+
+7) Dans le dossier 'core/' remplacer les fichiers 'Acl.php', 'Controller.php', 'Core.php', 'Criteria.php', 'ErrorHandler.php', 'FrontController.php', 'Model.php', et 'Object.php'  de votre serveur par les nouveaux fichiers de la version 1.0.7
+
+8) Remplacer le dossier 'javascript/' de votre serveur par le nouveau dossier 'javascript/' de la version 1.0.7
+
+9) Remplacer le dossier 'languages/' de votre serveur par le nouveau dossier 'languages/' de la version 1.0.7
+
+10) Dans le dossier 'models/' remplacer les fichiers 'AdModel.php', 'KeywordsOfSiteModel.php', et 'SiteModel.php' de votre serveur par les nouveaux fichiers de la version 1.0.7
+11) Dans le dossier 'models/' uploader les nouveaux fichiers 'AllopassCodeModel.php', 'PackageModel.php', 'PaymentModel.php', 'PaymentProcessorModel.php', et 'SearchTagModel.php'sur votre serveur.
+
+12) Remplacer le dossier 'moderation/' de votre serveur par le nouveau dossier 'moderation/' de la version 1.0.7
+
+13) Dans le dossier 'uploads/' uploader le nouveau dossier 'images_packages/' sur votre serveur.
+
+14) Dans le dossier 'views/' remplacer les fichiers 'CaptchaView.php', et 'TemplateLiteView.php' de votre serveur par les nouveaux fichiers de la version 1.0.7
+
+
+
+
+15) le dossier templates/  Nous allons procéder au changement ligne par ligne.
+Ces changements prendront environs 20 à 35 minutes.
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/category/list.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if $setting.categoriesImages}
+        <img src="{'/uploads/images_categories/'|resurl}{$category.imageSrc}" alt="{$category.name}" class="category_image"/>
+{/if}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if $setting.categoriesImages}
+        <img src="{"/uploads/images_categories/$category.imageSrc"|resurl}" alt="{$category.name}" class="category_image"/>
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/css/style.css
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+.menuleft li.text_last, .menuright li.text_last {
+	display:block;
+	margin:0;
+	padding:0;
+	padding-left:5px;
+	color:#000000;
+	background-color:#ffffff;
+	border-bottom:1px #000000 solid;
+}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+/*Menu right - Tag Cloud */
+
+/* cloudTag1*/
+.menuright li.cloudTag1 a, .menuright li.cloudTag1 a:link, .menuright li.cloudTag1 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.7em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag1 a:hover, .menuright li.cloudTag1 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.7em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag2*/
+.menuright li.cloudTag2 a, .menuright li.cloudTag2 a:link, .menuright li.cloudTag2 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.8em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag2 a:hover, .menuright li.cloudTag2 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.8em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag3*/
+.menuright li.cloudTag3 a, .menuright li.cloudTag3 a:link, .menuright li.cloudTag3 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.9em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag3 a:hover, .menuright li.cloudTag3 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:0.9em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag4*/
+.menuright li.cloudTag4 a, .menuright li.cloudTag4 a:link, .menuright li.cloudTag4 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.0em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag4 a:hover, .menuright li.cloudTag4 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.0em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag5*/
+.menuright li.cloudTag5 a, .menuright li.cloudTag5 a:link, .menuright li.cloudTag5 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.1em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag5 a:hover, .menuright li.cloudTag5 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.1em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag6*/
+.menuright li.cloudTag6 a, .menuright li.cloudTag6 a:link, .menuright li.cloudTag6 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.2em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag6 a:hover, .menuright li.cloudTag6 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.2em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag7*/
+.menuright li.cloudTag7 a, .menuright li.cloudTag7 a:link, .menuright li.cloudTag7 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.3em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag7 a:hover, .menuright li.cloudTag7 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.3em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag8*/
+.menuright li.cloudTag8 a, .menuright li.cloudTag8 a:link, .menuright li.cloudTag8 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.4em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag8 a:hover, .menuright li.cloudTag8 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.4em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag9*/
+.menuright li.cloudTag9 a, .menuright li.cloudTag9 a:link, .menuright li.cloudTag9 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.5em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag9 a:hover, .menuright li.cloudTag9 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.5em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+/* cloudTag10*/
+.menuright li.cloudTag10 a, .menuright li.cloudTag10 a:link, .menuright li.cloudTag10 a:visited {
+	display:inline;
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.6em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+	voice-family:inherit;
+}
+
+.menuright li.cloudTag10 a:hover, .menuright li.cloudTag10 a:active {
+	padding-left:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+	font-size:1.6em;
+	color:#000000;
+	background-color:transparent;
+	text-decoration:none;
+}
+
+
+
+/* Menu left - Keyword */
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+#menuin li a:hover, #menuin li a:active {
+	padding-left:3px;
+	color:#ffffff;
+	background-color:#4079a9;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+/* MENU CHOOSE WEBSITE SUBMISSION */
+
+.column_in_choose_left {
+    float:left;
+    width:300px;
+    margin:0;
+    padding:7px;
+    margin-bottom:7px;
+    text-align:center;
+}
+
+.column_in_choose_right {
+    float:right;
+    width:300px;
+    margin:0;
+    padding:7px;
+    margin-bottom:7px;
+    text-align:center;
+}
+
+
+.menuchoose_left {
+    height:200px;
+    margin:0;
+    margin-bottom:20px;
+    padding:0;
+    font-size:2.5em;
+    text-transform:uppercase;
+}
+.menuchoose_right {
+    height:200px;
+    margin:0;
+    margin-bottom:20px;
+    padding:0;
+    font-size:2.2em;
+    text-transform:uppercase;
+}
+
+.menuchoose_left ul, .menuchoose_right ul {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}  
+
+.menuchoose_left li, .menuchoose_right li {
+    float:left;
+    width:270px;
+    padding:0;
+    margin:0;    
+    display:inline;
+} 
+
+.menuchoose_left li a, .menuchoose_left li a:link, .menuchoose_left li a:visited {
+    height:200px;
+    margin:0;
+    padding:0;
+    padding-left:7px;
+    display: block;
+    color:#ffffff;
+    background-color:transparent;
+    text-decoration:none;
+    line-height:180px;
+    voice-family:inherit;
+    background:url("../images/free.png") top no-repeat transparent;
+}
+
+.menuchoose_right li a, .menuchoose_right li a:link, .menuchoose_right li a:visited {
+    height:200px;
+    margin:0;
+    padding:0;
+    padding-left:20px;
+    display: block;
+    color:#ffffff;
+    background-color:transparent;
+    text-decoration:none;
+    line-height:180px;
+    voice-family:inherit;
+    background:url("../images/privilege.png") top no-repeat transparent;
+}
+
+.menuchoose_left li a:hover, .menuchoose_left li a:active {
+    height:200px;
+    margin:0;
+    padding:0;
+    padding-left:7px;
+    display: block;
+    color:#000000;
+    background-color:transparent;
+    text-decoration:none;
+    line-height:180px;
+}
+
+.menuchoose_right li a:hover, .menuchoose_right li a:active {
+    height:200px;
+    margin:0;
+    padding:0;
+    padding-left:20px;
+    display: block;
+    color:#000000;
+    background-color:transparent;
+    text-decoration:none;
+    line-height:180px;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+.text_thematic_close {
+	font-style:italic;
+	color:#574d44;
+	padding-left:4px;
+}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+.text_center {
+    text-align:center;
+    font-weight:bold;
+}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+img.flag_image {
+	float:left;
+	margin:0;
+	margin-top:2px;
+	margin-left:-30px;
+	padding:0;
+	width:18px;
+	height:12px;
+}
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+img.package_image {
+	float:right;
+	margin:0;
+	padding:0;
+}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/front/404.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<div class="column_in">
+La page que vous avez desirez atteindre n'existe pas (ou plus). Excusez-nous pour la gène occasionnée...
+</div>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<div class="column_in">
+{'The page you want to achieve is not (or more). Excuse us for the inconvenience...'|lang}
+</div>
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/javascript/config.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+    setting.lang['The comment was deleted.'] = "{'The comment was deleted.'|lang}";
+    setting.lang['The IP was banned.'] = "{'The IP was banned.'|lang}";
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+    setting.lang['The comment was deleted.'] = "{'The comment was deleted.'|lang}";
+    setting.lang['The IP was banned.'] = "{'The IP was banned.'|lang}";
+    setting.lang['Please, select a package.'] = "{'Please, select a package.'|lang}";
+    setting.lang['Please, select a payment processor.'] = "{'Please, select a payment processor.'|lang}";
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/keyword/show.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{include file="includes/header.tpl" title="{'Keywords'|lang} - "|cat:$letter metaDescription="{'Directory of words starting with '|lang}"|cat:$letter}   
+
+<div class="show_arbo"> 
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{include file="includes/header.tpl" title="{'Keywords'|lang} - "|cat:$letter metaDescription="{'Directory of words starting with'|lang}"|cat:" "|cat:$letter}   
+
+<div class="show_arbo"> 
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+            <li><a href="{"/site/keyword/$keyword.keywordId/$keyword.keyword/1"|url}" title="{$keyword.keyword}">{$keyword.keyword}</a>
+                <span class="text_numbers">({$keyword.count})</span>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+            <li><a href="{"/site/keyword/$keyword.keywordId/%s/1"|url:$keyword.keyword}" title="{$keyword.keyword}">{$keyword.keyword}</a>
+                <span class="text_numbers">({$keyword.count})</span>
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/menu/menuheader/menuheader.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<li id="last"><a href="{if $setting.registrationOfWebmastersEnabled && $setting.inscriptionsOfSitesEnabled}{'/webmaster/submitWebsite'|url}{else}{'/webmaster/submit1'|url}{/if}" title="{'Submit website'|lang}">{'Submit website'|lang}</a></li>	
+</ul>
+</div>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<li id="last"><a href="{if $setting.registrationOfWebmastersEnabled}{'/webmaster/submitWebsite'|url}{else}{'/webmaster/submit1'|url}{/if}" title="{'Submit website'|lang}">{'Submit website'|lang}</a></li>	
+</ul>
+</div>
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/menu/menuright/menuright.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<div class="menuright">
+<ul>
+<li class="header">{'Contact'|lang}</li>
+<li class="last"><a href="{'/contact'|url}" title="{'Contact form'|lang}">{'Contact form'|lang}</a></li>
+</ul>
+</div>
+
+#
+#----[ APRES AJOUTER ]------------------------------------------
+#
+
+{if $setting.tagCloudEnabled}
+{"menu/displayTagCloud"|action}
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+setting.commentPopupUrl = "{"/comment/popup/$site.siteId"|url}";
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if $setting.commentsEnabled}
+setting.commentPopupUrl = "{"/comment/popup/$site.siteId"|url}";
+{/if}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{foreach from=$site.categoryParentsData value=category}
+    <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" class="link_showarbo"> {$category.name} </a> &gt;
+{/foreach}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{foreach from=$site.categoryParentsData value=category}
+    <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" class="link_showarbo">{$category.name}</a> &gt;
+{/foreach}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if $setting.sitesImages}
+    <a href="{$site.url}" title="{$site.siteTitle}" class="link_black_grey_bold" onclick="return visitSite({$site.siteId})">
+    <img src="{$site.imageSrc}" alt="{$site.siteTitle}" class="website_image" />
+    </a>
+{/if}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if $setting.sitesImages}
+    <a href="{$site.url}" rel="nofollow" class="link_black_grey_bold" onclick="return visitSite({$site.siteId})">
+    <img src="{$site.imageSrc}" alt="{$site.siteTitle}" class="website_image" />
+    </a>
+{/if}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+        {foreach from=$site.keywords value=keyword key=keywordId}
+            { math equation="x - 1" x=$counter assign="counter" }
+            <a href="{"/site/keyword/$keywordId/$keyword/1"|url}" title="{$keyword}" class="link_black_grey">{$keyword}</a>{if $counter > 0},{/if}
+        {/foreach}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+        {foreach from=$site.keywords value=keyword key=keywordId}
+            { math equation="x - 1" x=$counter assign="counter" }
+            <a href="{"/site/keyword/$keywordId/%s/1"|url:$keyword}" title="{$keyword}" class="link_black_grey">{$keyword}</a>{if $counter > 0},{/if}
+        {/foreach}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+    <td class="td_bold">{'Category'|lang}: </td>
+    <td>
+    <a href="{$setting.siteRootUrl}" class="link_black_grey">{'Directory'|lang}</a>
+    {foreach from=$site.categoryParentsData value=category}
+
+        &gt; <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" class="link_black_grey"> {$category.name} </a>
+
+    {/foreach}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+	<td class="td_bold">{'Category'|lang}: </td>
+	<td>
+    <a href="{$setting.siteRootUrl}" rel="nofollow" class="link_black_grey">{'Directory'|lang}</a> 
+    {foreach from=$site.categoryParentsData value=category}
+	&gt; <a href="{"/site/category/$category.parentId/%s/1"|url:$category.name}" rel="nofollow" class="link_black_grey">{$category.name}</a>
+	{/foreach}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if !empty($googleMap)}
+<div id="map" style="width:100%; height:300px">
+{$googleMap|htmlspecialchars_decode}
+</div>
+{/if}
+</div>
+{/if}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if !empty($googleMap)}
+<div id="map" style="width:100%; height:300px">
+{$googleMap|htmlspecialchars_decode}
+</div>
+{/if}
+</div>
+{displayAd place="underInformationCompany"}
+{/if}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<span class="text_thematic_close">{$randomSite.description|truncate:$setting.randomSitesInDetailsDescriptionLength}</span>
+</div>
+{/foreach}
+</div>
+{/if}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<span class="text_thematic_close">{$randomSite.description|truncate:$setting.randomSitesInDetailsDescriptionLength}</span>
+</div>
+{/foreach}
+</div>
+{displayAd place="underThematicCloseWebsite"}
+{/if}
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/item.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if $setting.sitesImages}
+<a href="{$site.url}" title="{$site.siteTitle}" class="link_black_grey_bold" onclick="return visitSite({$site.siteId})">
+<img src="{$site.imageSrc}" alt="{$site.siteTitle}" class="website_image" />
+</a> 
+{/if}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if $setting.sitesImages}
+<a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" title="{'Details'|lang} : {$site.siteTitle}" class="link_black_grey_bold">
+<img src="{$site.imageSrc}" alt="{'Details'|lang} : {$site.siteTitle}" class="website_image" />
+</a> 
+{/if}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{if !empty($site.isNew)}<img src="{'/templates/arfooo/images/new.gif'|resurl}" alt="{'New site'|lang}" />{/if}
+<br /><br />  
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{if !empty($site.isNew)}<img src="{'/templates/arfooo/images/new.gif'|resurl}" alt="{'New site'|lang}" />{/if}
+{if $site.packageImageSrc}
+<img src="{"/uploads/images_packages/$site.packageImageSrc"|resurl}" alt="" class="package_image" />
+{/if}
+<br /><br /> 
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{foreach from=$site.keywords value=keyword key=keywordId}
+<a href="{"site/keyword/$keywordId/$keyword/1"|url}" title="{$keyword}" class="link_black_grey">{$keyword}</a>
+{/foreach}  
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{foreach from=$site.keywords value=keyword key=keywordId}
+<a href="{"site/keyword/$keywordId/%s/1"|url:$keyword}" title="{$keyword}" class="link_black_grey">{$keyword}</a>
+{/foreach}
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+</span>                     
+|                      
+<a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" title="{'Details'|lang} : {$site.siteTitle}" class="link_black_grey_bold">{'Details'|lang}</a>               
+</div>   
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+</span>                     
+|                      
+<a href="{"/site/details/$site.siteId/%s"|url:$site.siteTitle}" {if $setting.sitesImages == 0}title="{'Details'|lang} : {$site.siteTitle}"{/if} {if $setting.sitesImages}rel="nofollow"{/if} class="link_black_grey_bold">{'Details'|lang}</a>               
+</div>
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/keyword.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<a href="{$setting.siteRootUrl}" class="link_showarbo">{'Directory'|lang}</a> &gt;
+<a href="{"/site/keyword/$keyword.keywordId/$keyword.keyword/1"|url}" class="link_showarbo">{$keyword.keyword}</a>
+</div>
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<a href="{$setting.siteRootUrl}" class="link_showarbo">{'Directory'|lang}</a> &gt;
+<a href="{"/site/keyword/$keyword.keywordId/%s/1"|url:$keyword.keyword}" class="link_showarbo">{$keyword.keyword}</a>
+</div>
+
+
+
+
+
+16) Dans le dossier 'templates/arfooo/webmaster/' remplacer les fichiers 'manage.tpl', 'submit1.tpl', 'submit2.tpl', et 'submitWebsite.tpl' de votre serveur par les nouveaux fichiers de la version 1.0.7
+17) Dans le dossier 'templates/arfooo/webmaster/' uploader les nouveaux fichiers 'chooseSiteType.tpl', 'loading.tpl', et 'submitDisabled.tpl' sur votre serveur.
+
+18) Dans le dossier 'templates/arfooo/images/' uploader les nouveaux fichiers 'default.jpg', 'defaultCategoryImage.gif', 'free.png', et 'privilege.png' sur votre serveur.
+
+19) Dans le dossier 'templates/arfooo/menu/menuright' uploader le nouveau fichier 'tagCloud.tpl' sur votre serveur.
+
+20) Dans le dossier 'templates/arfooo/site/' uploader le nouveau fichier 'tag.tpl' sur votre serveur.
+
+21) Dans le dossier 'templates/arfooo/' uploader le nouveau dossier 'payment/' sur votre serveur.
+
+22) Dans le dossier 'templates/arfooo/webmaster/' uploader les nouveaux fichiers 'chooseSiteType.tpl', 'loading.tpl', et 'submitDisabled.tpl' sur votre serveur.
+         
+
+
+23) Uploader sur votre serveur le dossier 'install/'
+puis rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/update107.php
+
+24) !!!!!!! ATTENTION !!!!!!!!
+25) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+26) Cliquer 1 SEULE FOIS sur le bouton "Update Now!"
+
+27) Supprimer le dossier 'install/'
+
+28) Supprimer le contenu des dossiers 'cache/' et 'compiled/' sauf les .htaccess et actualiser plusieurs fois la page de votre annuaire à l'aide de votre
+navigateur (IE, Mozilla, Opera...)
+
+Si vous rencontrez d'autres problèmes ou voulez plus de détail sur la modification des fichiers, un forum est à votre disposition :
+http://forum.arfooo.com
+
+
+

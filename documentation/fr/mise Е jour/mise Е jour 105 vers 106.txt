@@ -1,0 +1,110 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0.5 vers la version 1.0.6
+
+
+1) Faites une sauvegarde de votre base de données
+2) Remplacer le dossier 'admin/' de votre serveur par le nouveau dossier 'admin/' de la version 1.0.6
+3) Remplacer le dossier 'javascript/' de votre serveur par le nouveau dossier 'javascript/' de la version 1.0.6
+4) Remplacer le fichier 'components/PhoogleMap.php' de votre serveur par le nouveau fichier de la version 1.0.6
+5) Remplacer les fichiers 'controllers/RssController.php' et 'controllers/SiteController.php' de votre serveur par les nouveaux fichiers de la version 1.0.6
+6) Remplacer le fichier 'models/SiteModel.php' de votre serveur par le nouveau fichier de la version 1.0.6
+7) Remplacer le fichier 'languages/fr.php' de votre serveur par le nouveau fichier de la version 1.0.6
+8) Remplacer le fichier 'config/version.php' de votre serveur par le nouveau fichier de la version 1.0.6
+9) Uploder sur votre serveur le fichier 'models/BannedSiteModel.php'
+
+10) le dossier templates/  Nous allons procéder au changement ligne par ligne.
+Ces changements prendront environs 2 minutes.
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/category.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+{capture assign="headData"}
+<script type="text/javascript" src="{'/javascript/config'|url}"></script> 
+<script type="text/javascript" src="{'/javascript/core/ajax.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/site/VisitSite.js'|resurl}"></script> 
+{/capture}
+
+{include file="includes/header.tpl" title=$category.name|cat:" - {'page'|lang} "|cat:$pageNavigation.currentPage} 
+
+<div class="show_arbo"> 
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+{capture assign="headData"}
+<script type="text/javascript" src="{'/javascript/config'|url}"></script>
+<script type="text/javascript" src="{'/javascript/core/ajax.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/site/VisitSite.js'|resurl}"></script>
+{/capture}
+{if $category.title ne ""}
+    {assign var="pageTitle" value=$category.title}
+{else}
+    {assign var="pageTitle" value=$category.name}
+{/if}
+{include file="includes/header.tpl" title=$pageTitle|cat:" - {'page'|lang} "|cat:$pageNavigation.currentPage}
+
+<div class="show_arbo">
+
+#
+#----[ OUVRIR ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ RECHERCHER ]------------------------------------------
+#
+
+<div class="column_in">
+{if !empty($remoteRss)}
+{foreach from=$remoteRss.items value=item}
+<a href="{$item.link}" class="link_black_grey_bold">{$item.title|truncate:$setting.numberOfCharactersForRssParsing}</a><br />
+{$item.description|truncate:$setting.numberOfCharactersForRssParsing}<br /><br />
+{/foreach}
+{/if}
+</div>
+{/if}
+
+#
+#----[ REMPLACER PAR ]------------------------------------------
+#
+
+<div class="column_in">
+{if !empty($remoteRss)}
+{foreach from=$remoteRss.items value=item}
+<a href="{$item.link}" class="link_black_grey_bold">{$item.title|truncate:$setting.numberOfCharactersForRssParsing}</a><br />
+{if isset($item.description)}{$item.description|truncate:$setting.numberOfCharactersForRssParsing}<br />{/if}<br />
+{/foreach}
+{/if}
+</div>
+{/if} 
+
+
+
+
+11) Uploader sur votre serveur le dossier 'install/'
+puis rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/update106.php
+
+12) !!!!!!! ATTENTION !!!!!!!!
+13) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+14) Cliquer 1 SEULE FOIS sur le bouton "Update Now!"
+
+15) Supprimer le dossier 'install/'
+
+16) Supprimer le contenu des dossiers 'cache/' et 'compiled/' sauf les .htaccess et actualiser plusieurs fois la page de votre annuaire à l'aide de votre
+navigateur (IE, Mozilla, Opera...)
+
+Si vous rencontrez d'autres problèmes ou voulez plus de détail sur la modification des fichiers, un forum est à votre disposition :
+http://forum.arfooo.com
+
+
+
+

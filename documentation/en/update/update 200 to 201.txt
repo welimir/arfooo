@@ -1,0 +1,170 @@
+Below the various steps to update Arfooo Directory
+From version 2.0.0 to version 2.0.1
+
+
+1) Make a backup of your database and your files.
+
+2) Replace the file 'core.php' on your server through the new file version 2.0.1
+
+3) Replace the folder '/admin/' on your server through the new folder version 2.0.1
+
+4) Replace the folder '/components/' on your server through the new folder version 2.0.1
+
+5) In the folder '/config/' replace the files 'version.php' and 'routes.php' on your server through the new files version 2.0.1
+
+6) In the folder '/controllers/' replace the files 'CommentController.php', 'MenuController.php', 'RssController.php', 'SiteController.php', and 'UserController.php' on your server through the new files version 2.0.1
+
+7) In the folder '/core/' replace the file 'ErrorHandler.php', 'FrontController.php' and 'Router.php' on your server through the new files version 2.0.1
+
+8) Replace the folder '/javascript/' on your server through the new folder version 2.0.1
+
+9) Replace the folder '/languages/' on your server through the new folder version 2.0.1
+
+10) In the folder '/models/' upload the new file 'RewriteModel.php' version 2.0.1
+
+11) In the folder '/models/' replace the files 'CategoryModel.php', 'SiteListModel.php', 'SiteSearcherModel.php' and 'SiteValidatorModel.php' on your server through the new files version 2.0.1
+
+12) Replace the folder '/moderation/' on your server through the new folder version 2.0.1
+
+13) In the folder '/views/' replace the file 'JsonView.php' on your server through the new file version 2.0.1
+
+
+
+
+
+14) the folder templates/  We will proceed to change line by line.
+These changes will take about 5 minutes.
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/menu/menuheader/menuheader.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<li id="news"><a href="{'/site/news'|url}">{'menuMenuheader_news'|lang}</a></li>
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{if !empty($setting.newsEnabled)}<li id="news"><a href="{'/site/news'|url}">{'menuMenuheader_news'|lang}</a></li>
+{/if}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/payment/selectPaymentOptions.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{capture assign="headData"}
+<script type="text/javascript" src="{'/javascript/config'|url}"></script> 
+<script type="text/javascript" src="{'/javascript/jquery/jquery.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.form.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.formTool.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery-validate/jquery.validate.js'|resurl}"></script> 
+<script type="text/javascript" src="{'/javascript/payment/selectPaymentOptionsOnLoad.js'|resurl}"></script>
+<script type="text/javascript">
+setting.allopassNumbers = {$allopassNumbersJSON};
+</script>
+{/capture}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{capture assign="headData"}
+<link href="{'/templates/arfooo/jquery/theme/ui.all.css'|resurl}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{'/javascript/config'|url}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery-ui.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.form.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery.formTool.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/jquery/jquery-validate/jquery.validate.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/payment/selectPaymentOptionsOnLoad.js'|resurl}"></script>
+<script type="text/javascript">
+setting.allopassNumbers = {$allopassNumbersJSON|htmlspecialchars_decode};
+</script>
+{/capture}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+</fieldset>
+              
+{include file="includes/footer.tpl"} 
+
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+</fieldset>
+</form>
+              
+{include file="includes/footer.tpl"}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<li id="comment_rating"><a href="{"/comment/popup/$site.siteId"|url}" class="link_black_grey_underline dialog" rel="nofollow" title="{'siteDetails_write_comment'|lang} / {'siteDetails_rate_website'|lang}" id="commentPopupLink">{'siteDetails_write_comment'|lang} / {'siteDetails_rate_website'|lang}</a></li>
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{if $setting.commentsEnabled}
+<li id="comment_rating"><a href="{"/comment/popup/$site.siteId"|url}" class="link_black_grey_underline dialog" rel="nofollow" title="{'siteDetails_write_comment'|lang} / {'siteDetails_rate_website'|lang}" id="commentPopupLink">{'siteDetails_write_comment'|lang} / {'siteDetails_rate_website'|lang}</a></li>
+{/if}
+
+
+
+
+
+
+15) In the folder '/templates/arfooo/css/' replace the file 'upload.css' on your server through the new file version 2.0.1
+
+16) In the folder '/templates/arfooo/images/' replace the file 'loader.gif' on your server through the new file version 2.0.1
+
+17) Replace the folder '/templates/arfooo/jquery/' on your server through the new folder version 2.0.1
+
+18) In the folder '/templates/arfooo/webmaster/' replace the file 'submitWebsite.tpl' on your server through the new file version 2.0.1
+
+
+
+
+
+
+19) Upload on your server the folder '/install/
+Once uploaded folder, go to the following url: http://www.your-site.com/folderarfooo/install/update/update201.php 
+
+20) !!!!!!! WARNING !!!!!!!! 
+21) Read the instructions if you could lose data, it is necessary to safeguard your database. 
+22) ONLY 1 Click on the button "Update Now!" "
+
+23) Delete the folder '/install/'
+
+24) Delete the contents of the folders '/cache/'and '/compiled/' except .htaccess file and update several times the page on your directory with your 
+browser (IE, Mozilla, Opera ...)
+
+
+If you encounter other problems a forum is at your disposal: 
+http://forum.arfooo.net
+
+
+

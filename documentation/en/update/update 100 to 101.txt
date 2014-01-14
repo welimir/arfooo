@@ -1,0 +1,38 @@
+Below the various steps to update Arfooo Directory
+From version 1.0.0 to version 1.0.1
+
+
+1) Make a backup of your database 
+2) Deleted whole folder containing the files except Arfooo Directory: 
+- Config/db.php 
+- stylce.css your file if you have made changes 
+3) Upload all files except Arfooo Directory folder "documentation". 
+4) Once uploaded files, go to the following url: http://www.your-site.com/folderarfooo/install/update/ 
+
+5) !!!!!!! WARNING !!!!!!!! 
+6) Read the instructions if you could lose data, it is necessary to safeguard your database. 
+7) ONLY 1 Click on the file "update101.php" 
+8) Go to your directory in the part of visitors, not in admin parts, and see if strange characters appear. 
+
+9) IF THE CHARACTERS ARE STRANGE AND ONLY IF THE CHARACTERS ARE STRANGE,  ITSELF 1 click on the file "fixdb.php" 
+10) Delete the folder "install /" 
+
+
+
+If after the upgrade, you are unable to log in to your account administrator 
+Or if you have a blank page with an error 403, 404, 500 ... Then: 
+
+Delete .htaccess the file in "admin/" and "moderation /" 
+Delete .htacess main Arfooo Directory is replaced by the new. 
+
+You have your set .htaccess depending on the specifics of your server. 
+
+1) It may be that you had to remove the front # #RewriteBase/ 
+2) You can also move your own. Htaccess at the root of your accommodation. 
+Then it will settle Rewritebase / like that if you installed Arfooo Directory in the "Directory": 
+Rewritebase /directory/ 
+Or 
+Rewritebase /directory 
+
+If you encounter other problems a forum is at your disposal: 
+http://forum.arfooo.net

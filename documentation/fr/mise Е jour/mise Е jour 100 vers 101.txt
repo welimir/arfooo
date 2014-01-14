@@ -1,0 +1,40 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0.0 à la version 1.0.1
+
+
+1) Faites une sauvegarde de votre base de données
+2) SUpprimer tout le dossier contenant les fichiers Arfooo Annuaire sauf :
+- config/db.php
+- votre fichier stylce.css si vous avez procédé à des modifications
+3) Uploader tous les fichiers de Arfooo Annuaire sauf le dossier "documentation".
+4) Une fois les fichiers uploadés, rendez-vous à l'url suivante : http://www.votre-site.com/dossierarfooo/install/update/
+
+5) !!!!!!! ATTENTION !!!!!!!!
+6) Lisez attentivement les instructions sinon vous pourriez perdre des données, il faut donc sauvegarder votre base de données.
+7) Cliquer 1 SEULE FOIS sur le fichier "update101.php"
+8) Rendez-vous sur votre annuaire dans la partie visiteur et non admin et regardez si des caractères étranges apparaissent.
+
+9) SI DES CARACTERES ETRANGES APPARAISSENT ET UNIQUEMENT SI DES CARACTERES ETRANGES APPARAISSENT, cliquer 1 SEULE FOIS sur le fichier "fixdb.php"
+10) Supprimer le dossier "install/"
+
+
+
+Si après la mise à jour, vous ne parvenez pas à vous connecter à votre compte administrateur
+ou si vous avez une page blanche avec une erreur 403, 404, 500 ... alors :
+
+Supprimer le .htaccess du dossier "admin/" et "moderation/"
+Supprimer le .htacess principal de Arfooo Annuaire est remplacé le par le nouveau.
+
+Il faut que vous régliez votre .htaccess selon les caractéristiques de votre serveur.
+
+1) Il se peut que vous deviez supprimer le # devant #RewriteBase /
+2) Vous devez peut être également déplacer votre .htaccess à la racine de votre hébergement.
+Alors il faudra régler Rewritebase / comme ça si vous avez installé Arfooo Annuaire dans le dossier "annuaire" :
+Rewritebase /annuaire/
+ou
+Rewritebase /annuaire
+
+Si vous rencontrez d'autres problèmes un forum est à votre disposition :
+http://forum.arfooo.com
+
+

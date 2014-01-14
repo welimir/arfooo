@@ -1,0 +1,109 @@
+Below the various steps to update Arfooo Directory
+From version 1.0.5 to version 1.0.6
+
+
+1) Make a backup of your database 
+2) Replace the folder 'admin/' on your server through the new folder 'admin/' version 1.0.6 
+3) Replace the folderr 'javascript/' on your server through the new folder 'javascript/' version 1.0.6 
+4) Replace the file 'components / PhoogleMap.php' on your server by the new file version 1.0.6 
+5) Replace the files 'controllers/ RssController.php' and 'controllers/SiteController.php' on your server through the files of the new version 1.0.6 
+6) Replace the file 'models/SiteModel.php' on your server by the new file version 1.0.6 
+7) Replace the files 'languages/en.php', 'admin/languages/en.php', 'moderation/languages/en.php' on your server by the new file version 1.0.6
+8) Replace the file 'config/version.php' on your server by the new file version 1.0.6
+9) Uplod sur on your server the file 'models/BannedSiteModel.php'
+
+10) the folder 'templates/'  We will proceed to change line by line. 
+These changes will take about 2 minutes
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/site/category.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+{capture assign="headData"}
+<script type="text/javascript" src="{'/javascript/config'|url}"></script> 
+<script type="text/javascript" src="{'/javascript/core/ajax.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/site/VisitSite.js'|resurl}"></script> 
+{/capture}
+
+{include file="includes/header.tpl" title=$category.name|cat:" - {'page'|lang} "|cat:$pageNavigation.currentPage} 
+
+<div class="show_arbo"> 
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+{capture assign="headData"}
+<script type="text/javascript" src="{'/javascript/config'|url}"></script>
+<script type="text/javascript" src="{'/javascript/core/ajax.js'|resurl}"></script>
+<script type="text/javascript" src="{'/javascript/site/VisitSite.js'|resurl}"></script>
+{/capture}
+{if $category.title ne ""}
+    {assign var="pageTitle" value=$category.title}
+{else}
+    {assign var="pageTitle" value=$category.name}
+{/if}
+{include file="includes/header.tpl" title=$pageTitle|cat:" - {'page'|lang} "|cat:$pageNavigation.currentPage}
+
+<div class="show_arbo">
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/site/details.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<div class="column_in">
+{if !empty($remoteRss)}
+{foreach from=$remoteRss.items value=item}
+<a href="{$item.link}" class="link_black_grey_bold">{$item.title|truncate:$setting.numberOfCharactersForRssParsing}</a><br />
+{$item.description|truncate:$setting.numberOfCharactersForRssParsing}<br /><br />
+{/foreach}
+{/if}
+</div>
+{/if}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<div class="column_in">
+{if !empty($remoteRss)}
+{foreach from=$remoteRss.items value=item}
+<a href="{$item.link}" class="link_black_grey_bold">{$item.title|truncate:$setting.numberOfCharactersForRssParsing}</a><br />
+{if isset($item.description)}{$item.description|truncate:$setting.numberOfCharactersForRssParsing}<br />{/if}<br />
+{/foreach}
+{/if}
+</div>
+{/if} 
+
+
+
+
+11)Upload on your server the folder 'install/
+Once uploaded folder, go to the following url: http://www.your-site.com/folderarfooo/install/update/update106.php 
+
+12) !!!!!!! WARNING !!!!!!!! 
+13) Read the instructions if you could lose data, it is necessary to safeguard your database. 
+14) ONLY 1 Click on the button "Update Now!" 
+
+15) Delete the folder 'install/' 
+
+16) Delete the contents of the folders 'cache/'and 'compiled/' except .htaccess file and update several times the page on your directory with your 
+browser (IE, Mozilla, Opera ...)
+
+
+If you encounter other problems a forum is at your disposal: 
+http://forum.arfooo.net
+
+

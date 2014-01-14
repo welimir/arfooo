@@ -1,0 +1,11 @@
+Ci-dessous les différentes étapes pour mettre à jour Arfooo Annuaire
+de la version 1.0.1 à la version 1.0.2
+
+1) Remplacer les fichiers suivants par les nouveaux fichiers présent dans arfooo-1.0.2.zip :
+core/Cacher.php
+admin/languages/fr.php
+admin/templates/arfooo/setting/index.tpl
+config/version.php
+
+et remplacer tout le dossier
+admin/javascript/setting

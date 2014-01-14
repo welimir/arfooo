@@ -1,0 +1,604 @@
+Below the various steps to update Arfooo Directory
+From version 2.0.1 to version 2.0.2
+
+
+1) Make a backup of your database and your files.
+
+2) Replace the folder '/admin/' on your server through the new folder version 2.0.2
+
+3) Replace the folder '/components/' on your server through the new folder version 2.0.2
+
+4) In the folder '/config/' replace the files 'version.php' and 'main.php' on your server through the new files version 2.0.2
+
+5) Replace the folder '/controllers/' on your server through the new folder version 2.0.2
+
+6) Replace the folder '/javascript/' on your server through the new folder version 2.0.2
+
+7) Replace the folder '/languages/' on your server through the new folder version 2.0.2
+
+8) Replace the folder '/models/' on your server through the new folder version 2.0.2
+
+9) Replace the folder '/moderation/' on your server through the new folder version 2.0.2
+
+10) In the folder '/views/' replace the files 'AppTemplateLiteView.php' and 'TemplateLiteView.php' on your server through the new folder version 2.0.2
+
+
+
+
+11) the folder templates/  We will proceed to change line by line.
+These changes will take approximatly 20 minutes.
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/comment/popup.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<link href="{'/templates/arfooo/jquery/jquery-rating/jquery.rating.css'|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<link href="{"/templates/$templateName/jquery/jquery-rating/jquery.rating.css"|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/contact/index.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<link href="{'/templates/arfooo/jquery/theme/ui.all.css'|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<link href="{"/templates/$templateName/jquery/theme/ui.all.css"|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/css/style.css
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+#principal {
+	position:relative;
+	width:1000px;
+	left:50%;
+	margin-left:-500px;
+}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+#principal {
+	position:relative;
+	width:1000px;
+	margin:0 auto;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+#column_bottom {
+	position:relative;
+    width:1000px;
+	left:50%;
+	margin:0 0 0 -500px;
+    padding:17px 0 0 0;
+	font-size:0.8em;
+	text-align:center;
+}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+#column_bottom {
+	position:relative;
+    width:1000px;
+	margin:0 auto;
+    padding:17px 0 0 0;
+	font-size:0.8em;
+	text-align:center;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+.column_in_comment_grey {
+	float:left;
+	width:752px;
+	margin:0;
+	padding:7px 0 7px 0;
+	background-color:#f4f4f4;
+}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+.column_in_comment_grey {
+	float:left;
+	width:752px;
+	margin:0;
+	padding:7px 0 7px 0;
+	background-color:#f4f4f4;
+}
+
+.column_in_comment_in {
+	float:left;
+	width:752px;
+	margin:0;
+	padding:0 0 7px 0;
+}
+
+.column_in_comment_in_left {
+	float:left;
+	margin:0;
+	padding:0 7px 0 0;
+}
+
+.column_in_comment_in_right {
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+label {
+    float:left;
+    margin:0;
+    padding:0;
+    line-height:1.8em;
+}
+
+label.title {
+    width:142px;
+    padding-right:17px;
+    font-weight:bold;
+    text-align:right;
+}
+
+div.infos {
+    float: left;
+	width:435px;
+    margin:0;
+    padding:0 0 0 7px;
+    line-height:1.8em;
+    text-align:left;
+}
+
+div.infos_terms {
+    float: left;
+	width:570px;
+    margin:0;
+    padding:0 0 0 7px;
+    line-height:1.8em;
+    text-align:left;
+}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+label {
+    float:left;
+    margin:0;
+    padding:0;
+    line-height:1.5em;
+}
+
+label.title {
+    width:142px;
+    padding:0 17px 0 0;
+	font-size:0.9em;
+    font-weight:bold;
+    text-align:right;
+}
+
+div.infos {
+    float: left;
+	width:435px;
+    margin:0;
+    padding:0 0 0 7px;
+    line-height:1.5em;
+    text-align:left;
+}
+
+div.infos_textarea {
+    float: left;
+	width:365px;
+    margin:0;
+    padding:0;
+}
+
+div.infos_terms {
+    float: left;
+	width:570px;
+    margin:0;
+    padding:0 0 0 7px;
+    line-height:1.7em;
+    text-align:left;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+div.infos_details {
+	float: left;
+    width:377px;
+	line-height: 1.8em;
+    margin:0;
+    padding:0 0 0 7px;
+    text-align:left;
+}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+div.infos_details {
+	float: left;
+    width:377px;
+	line-height: 1.5em;
+    margin:0;
+    padding:0 0 0 7px;
+    text-align:left;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+fieldset.column_in_popup {
+    float: left;
+    width:480px;
+	line-height:1.8em;
+    margin:7px 0 7px 0;
+    padding:0;
+    text-align:right;
+	border:none;
+}
+
+label.title_popup {
+    width:105px;
+	margin:0;
+    padding:0 17px 0 0;
+    font-weight:bold;
+    text-align:right;
+}
+
+div.infos_popup {
+	float: left;
+    width:295px;
+	line-height:1.8em;
+    margin:0;
+    padding:0 0 0 7px;
+    text-align:left;
+}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+fieldset.column_in_popup {
+    float: left;
+    width:480px;
+    margin:7px 0 7px 0;
+    padding:0;
+    text-align:right;
+	border:none;
+}
+
+label.title_popup {
+    width:105px;
+	margin:0;
+    padding:0 17px 0 0;
+    font-weight:bold;
+    text-align:right;
+}
+
+div.infos_popup {
+	float: left;
+    width:295px;
+	line-height:1.5em;
+    margin:0;
+    padding:0 0 0 7px;
+    text-align:left;
+}
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+a { font-family:Tahoma, Verdana, Arial, sans-serif; }
+a:link, a:visited { color:#000000; text-decoration:none; }
+a:hover, a:active { color:#574d44; text-decoration:none; }
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+a { font-family:Tahoma, Verdana, Arial, sans-serif; }
+a:link, a:visited { color:#1e6dab; text-decoration:none; }
+a:hover, a:active { color:#574d44; text-decoration:none; }
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+a.link_small_underline:hover, a.link_small_underline:active { color:#574d44; text-decoration:underline; }
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+a.link_small_underline:hover, a.link_small_underline:active { color:#574d44; text-decoration:underline; }
+
+a.link_black_grey { font-family:Tahoma, Verdana, Arial, sans-serif; }
+a.link_black_grey:link, a.link_black_grey:visited { color:#000000; text-decoration:none; }
+a.link_black_grey:hover, a.link_black_grey:active { color:#574d44; text-decoration:none; }
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+.textarea_extra_large {
+	float:left;
+	border:1px #000000 solid;
+	width:400px;
+	height:200px;
+}
+
+.textarea_return {
+	float:left;
+	border:1px #000000 solid;
+	width:300px;
+	height:90px;
+}
+
+p { 
+	margin:0;
+	padding:0; 
+}			
+
+img { 
+	border:0;
+	margin:0;
+	padding:0;
+}
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+.textarea_extra_large {
+	float:left;
+	border:1px #000000 solid;
+	width:360px;
+	height:200px;
+}
+
+.textarea_return {
+	float:left;
+	border:1px #000000 solid;
+	width:300px;
+	height:90px;
+}
+
+/* EXTRA FIELD : TEXTAREA, SELECT, INPUT... */
+
+.extraField_textarea{
+	float:left;
+	border:1px #000000 solid;
+	width:350px;
+	height:110px;
+}
+
+.extraField_text{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_select{
+}
+
+.extraField_radio{
+}
+
+.extraField_checkbox{
+}
+
+.extraField_range{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_url_url{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_url_anchor{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_file_file{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+.extraField_file_title{
+	border:1px #000000 solid;
+	width:250px;
+}
+
+/* RESET P */
+p { 
+	margin:0;
+	padding:0; 
+}			
+
+/* IMAGES */
+img { 
+	border:0;
+	margin:0;
+	padding:0;
+}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/includes/header.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<link href="{'/templates/arfooo/css/style.css'|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<link href="{"/templates/$templateName/css/style.css"|resurl}" rel="stylesheet" type="text/css" />
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/includes/pageNavigation.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<img src="{'/templates/arfooo/images/leftNavigationArrow.gif'|resurl}" style="vertical-align:middle;" alt="{if !empty($pageNavigation.title)}{$pageNavigation.title} - {'includesPageNavigation_page'|lang} {$previousPage}{else}left arrow{/if}" />
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<img src="{"/templates/$templateName/images/leftNavigationArrow.gif"|resurl}" style="vertical-align:middle;" alt="{if !empty($pageNavigation.title)}{$pageNavigation.title} - {'includesPageNavigation_page'|lang} {$previousPage}{else}left arrow{/if}" />
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<img src="{'/templates/arfooo/images/rightNavigationArrow.gif'|resurl}" style="vertical-align:middle;" alt="{if !empty($pageNavigation.title)}{$pageNavigation.title} - {'includesPageNavigation_page'|lang} {$nextPage}{else}right arrow{/if}"/>
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<img src="{"/templates/$templateName/images/rightNavigationArrow.gif"|resurl}" style="vertical-align:middle;" alt="{if !empty($pageNavigation.title)}{$pageNavigation.title} - {'includesPageNavigation_page'|lang} {$nextPage}{else}right arrow{/if}"/>
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/info/useCondition.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<div class="column_in2">
+{$directoryCondition.description|htmlspecialchars_decode|nl2br} 
+</div>
+
+{include file="includes/footer.tpl"}    
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<div class="column_in">
+{$directoryCondition.description|htmlspecialchars_decode|nl2br} 
+</div>
+
+{include file="includes/footer.tpl"}
+
+#
+#----[ OPEN ]------------------------------------------
+#
+
+templates/arfooo/newsletter/index.tpl
+
+#
+#----[ FIND ]------------------------------------------
+#
+
+<link href="{'/templates/arfooo/jquery/theme/ui.all.css'|resurl}" rel="stylesheet" type="text/css" /> 
+
+#
+#----[ REPLACE WITH ]------------------------------------------
+#
+
+<link href="{"/templates/$templateName/jquery/theme/ui.all.css"|resurl}" rel="stylesheet" type="text/css" />
+
+
+
+
+
+12) In the folder '/templates/arfooo/css/' remplacer le fichier 'upload.css' on your server through the new file version 2.0.2
+
+13) In the folder '/templates/arfooo/extraField/' remplacer le fichier 'itemForm.tpl' on your server through the new file version 2.0.2
+
+14) Replace the folder '/templates/arfooo/javascript/' on your server through the new folder version 2.0.2
+
+15) Replace the folder '/templates/arfooo/jquery/' on your server through the new folder version 2.0.2
+
+16) Replace the folder '/templates/arfooo/payment/' on your server through the new folder version 2.0.2
+
+17) Replace the folder '/templates/arfooo/site/' on your server through the new folder version 2.0.2
+
+18) Replace the folder '/templates/arfooo/webmaster/' on your server through the new folder version 2.0.2
+
+19) Upload the folder /templates/arfooo/photo/ on your server
+
+
+
+
+
+20) Upload on your server the folder '/install/
+Once uploaded folder, go to the following url: http://www.your-site.com/folderarfooo/install/update/update202.php 
+
+21) !!!!!!! WARNING !!!!!!!! 
+22) Read the instructions if you could lose data, it is necessary to safeguard your database. 
+23) ONLY 1 Click on the button "Update Now!" "
+
+24) Delete the folder '/install/'
+
+25) Delete the contents of the folders '/cache/'and '/compiled/' except .htaccess file and update several times the page on your directory with your 
+browser (IE, Mozilla, Opera ...)
+
+
+If you encounter other problems a forum is at your disposal: 
+http://forum.arfooo.net
+
+
+

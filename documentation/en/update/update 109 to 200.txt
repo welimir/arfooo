@@ -1,0 +1,33 @@
+Below the various steps to update Arfooo Directory
+From version 1.0.9 to version 2.0.0
+
+
+1) Make a backup of your database and your files.
+
+2) Remove your old files except : 
+
+   - file .htaccess
+   - file /config/db.php 
+   - dir /save/
+   - dir /uploads/ 
+
+3) Upload new files.
+
+
+4) Open http://www.your-site.com/folderarfooo/install/update/update200.php in your browser
+
+5) !!!!!!! WARNING !!!!!!!! 
+6) Read the instructions if you could lose data, it is necessary to safeguard your database. 
+7) ONLY 1 Click on the button "Update Now!" "
+
+8) Delete the /install/ dir
+
+9) Delete the contents of the dir 'cache/'and 'compiled/' except .htaccess file and update several times the page on your directory with your 
+browser (IE, Mozilla, Opera ...)
+
+
+If you encounter other problems a forum is at your disposal: 
+http://forum.arfooo.net
+
+
+

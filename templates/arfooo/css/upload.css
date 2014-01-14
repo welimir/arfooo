@@ -1,0 +1,71 @@
+
+img.fileUploader_uploaded
+{
+}
+
+.fileUploader_responseMessage
+{
+    font-weight: bold;
+}
+
+.fileUploader_responseMessage.waiting
+{
+    background: url(../images/loader.gif) right center no-repeat;
+}
+
+.fileUploader_delete
+{
+    background: url(../images/delete.png) no-repeat;
+    height: 20px;
+    width: 20px;
+    float: right;
+    position: relative;
+    cursor: pointer;
+    margin-left:-5px;
+    margin-top:0px;
+}
+
+.fileUploader_fileInfo
+{
+    margin: 10px auto 0px;
+    text-align: center;
+    width: 90%;
+}
+
+.fileUploader_uploadedFilesStats
+{
+    padding:0;
+    font-weight:bold;
+}
+
+.fileUploader_fileName
+{
+    color: #000;
+    font-size: 0.9em;
+}
+
+ul.fileUploader_uploadedFiles
+{
+    list-style-type: none;
+    position: relative;
+    float:left;
+    margin-left:-20px;
+    padding-left:0px;
+}
+
+ul.fileUploader_uploadedFiles li
+{
+    border-right: 1px dotted #444;
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 170px;
+}
+
+.edit
+{
+	float:right;
+	width: 100px;
+	text-align:right;
+	cursor:pointer;
+}

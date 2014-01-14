@@ -1,0 +1,4 @@
+$(function(){
+
+    $.backgroundTask('siteHttpCode');
+});
