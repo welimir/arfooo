@@ -1,0 +1,27 @@
+{
+    "name": "welimir/arfooo",
+    "description": "Fixed and improved Arfooo directory script",
+    "keywords": ["arfooo", "catalog", "directory"],
+    "license": "CC-BY-2.0",
+    "authors": [
+        {
+            "name": "Arfooo Directory",
+            "homepage": "http://www.arfooo.net",
+            "role": "Developer"
+        },
+        {
+            "name": "Max Kiefel",
+            "homepage": "http://welimir.com",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Konstantin Ulrich",
+            "homepage": "http://welimir.com",
+            "role": "Maintainer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.1.0"
+    }
+}
