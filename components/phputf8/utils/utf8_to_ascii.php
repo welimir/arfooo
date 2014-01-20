@@ -7,7 +7,7 @@
 */
 
 if ( !defined('UTF8_TO_ASCII_DB') ) {
-    define('UTF8_TO_ASCII_DB', CODE_ROOT_DIR."/components/phputf8/utils/db/");
+    define('UTF8_TO_ASCII_DB', Config::get('COMPONENTS_PATH')."phputf8/utils/db/");
 }
 
 //--------------------------------------------------------------------

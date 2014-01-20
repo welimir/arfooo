@@ -31,11 +31,11 @@ class TemplateLiteView extends View
         $tpl = $this->templateLite;
         $templateName = $this->templateName;
 
-        $tpl->template_dir = CODE_ROOT_DIR . $controller->localDir . "templates/" . $templateName;
+        $tpl->template_dir = Config::get('TEMPLATES_PATH') . $templateName;
 
         if (!is_dir($tpl->template_dir)) {
             $templateName = Config::get("DEFAULT_TEMPLATE_NAME");
-            $tpl->template_dir = CODE_ROOT_DIR . $controller->localDir . "templates/" . $templateName;
+            $tpl->template_dir = Config::get('TEMPLATES_PATH') . $templateName;
         }
 
         $tpl->compile_dir = CODE_ROOT_DIR . "compiled/" . $controller->localDir . $templateName . "_template" . "/" . Config::get("language");

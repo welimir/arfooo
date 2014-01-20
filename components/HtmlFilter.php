@@ -4,7 +4,7 @@ class HtmlFilter
 {
     public static function getFilteredHtml($html, $allowedTags, $allowedCssProperties)
     {
-        require_once(CODE_ROOT_DIR . 'components/htmlpurifier/library/HTMLPurifier.auto.php');
+        require_once(Config::get('COMPONENTS_PATH') . 'htmlpurifier/library/HTMLPurifier.auto.php');
 
         $config = HTMLPurifier_Config::createDefault();
         $config->set('Core.Encoding', 'UTF-8');

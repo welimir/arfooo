@@ -1,7 +1,7 @@
 <?php
 /**
  * Arfooo
- * 
+ *
  * @package    Arfooo
  * @copyright  Copyright (c) Arfooo Annuaire (fr) and Arfooo Directory (en)
  *             by Guillaume Hocine (c) 2007 - 2010
@@ -368,7 +368,7 @@ class SiteController extends AppController
             // Define cache's maximum age
             define('MAGPIE_CACHE_AGE', 60 * 60 * 24 * intval(Config::get('magpieRssCacheMaxAgeDays')));
 
-            require_once (CODE_ROOT_DIR . 'components/magpierss/rss_fetch.php');
+            require_once (Config::get('COMPONENTS_PATH') . 'magpierss/rss_fetch.php');
             $rss = @fetch_rss($site['rssFeedOfSite']);
 
             if (!empty($rss)) {
@@ -432,7 +432,7 @@ class SiteController extends AppController
         Display::set("adPage", "tag" . $tagId);
         $searchedSites = array();
 
-        //get sites which containt searched phrase   
+        //get sites which containt searched phrase
         $searchedSites = $this->siteSearcher->searchValidated(array("phrase" => $searchTag->tag), $page);
 
         //prepare data for pagination

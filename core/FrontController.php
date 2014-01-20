@@ -1,7 +1,7 @@
 <?php
 /**
  * Arfooo
- * 
+ *
  * @package    Arfooo
  * @copyright  Copyright (c) Arfooo Annuaire (fr) and Arfooo Directory (en)
  *             by Guillaume Hocine (c) 2007 - 2010
@@ -164,9 +164,7 @@ class FrontController extends Controller
 
         $route['path'] = $route['executeDir'] ? $route['executeDir'] . "/" : "";
         $this->setExecuteDir($route['executeDir']);
-        $controllerDir = CODE_ROOT_DIR . $route['path'] . "controllers/";
-
-        Config::set("LANGUAGES_PATH", $route['path'] . "languages/");
+        $controllerDir = Config::get('CONTROLLERS_PATH');
 
         $controllerName = empty($params[$index]) ? "" : basename($params[$index]);
         $index++;

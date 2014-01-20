@@ -1,7 +1,7 @@
 <?php
 /**
  * Arfooo
- * 
+ *
  * @package    Arfooo
  * @copyright  Copyright (c) Arfooo Annuaire (fr) and Arfooo Directory (en)
  *             by Guillaume Hocine (c) 2007 - 2010
@@ -39,7 +39,7 @@ class Admin_TemplateController extends AppController
         setcookie("previewTemplateName", false, 0, "/");
 
         $templates = array();
-        $dir = new DirectoryIterator(CODE_ROOT_DIR . 'templates');
+        $dir = new DirectoryIterator(Config::get('TEMPLATES_PATH'));
 
         while ($dir->valid()) {
             if (!$dir->isDot()) {

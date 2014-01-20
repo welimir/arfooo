@@ -16,7 +16,7 @@ ini_set("display_errors", "on");
 ini_set("url_rewriter.tags","");
 error_reporting(E_ALL);
 
-require_once(CODE_ROOT_DIR."config/main.php");  
-require_once(CODE_ROOT_DIR."core/Core.php");
+require_once(CODE_ROOT_DIR."config/main.php");
+require_once(Config::get('CORE_PATH')."Core.php");
 
 ErrorHandler::getInstance();
