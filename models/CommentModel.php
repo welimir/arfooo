@@ -22,7 +22,7 @@ class CommentModel extends Model
         $this->updateSiteCommentsCount($siteId);
     }
 
-    function update($data, $c)
+    function update($data, Criteria $c)
     {
         parent::update($data, $c);
 
@@ -32,7 +32,7 @@ class CommentModel extends Model
         $this->updateSiteCommentsCount($siteId);
     }
 
-    function del($c, $updateStats = true)
+    function del(Criteria $c, $updateStats = true)
     {
         if ($updateStats) {
             $siteIds = array_unique($this->getArray($c, "siteId"));
