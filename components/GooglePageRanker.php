@@ -20,7 +20,7 @@ class GooglePageRanker
         $pageRank = 0;
         $url = ((substr(strtolower($url), 0, 7) != "http://") ? "http://" . $url : $url);
         $queryUrl = "http://" . $this->googleDomains[mt_rand(0, count($this->googleDomains) - 1)];
-        $queryUrl .= sprintf("/search?client=navclient-auto&ch=6%s&features=Rank&q=info:%s", $this->googleCh($this->strord("info:" . $url)), urlencode($url));
+        $queryUrl .= sprintf("/tbr?client=navclient-auto&ch=6%s&features=Rank&q=info:%s", $this->googleCh($this->strord("info:" . $url)), urlencode($url));
 
         $httpClient = new HttpClient();
 
