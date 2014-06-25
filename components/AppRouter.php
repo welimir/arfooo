@@ -34,6 +34,8 @@ class AppRouter extends Router
             $executeDir = 'plugins/' . $file->getFileName();
             self::$routes['^' . $executeDir . '*'] = array("executeDir" => $executeDir);
         }
+
+        krsort(self::$routes);
     }
 
     public function getControllerActionUrl($url)
