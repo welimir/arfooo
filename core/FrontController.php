@@ -164,7 +164,14 @@ class FrontController extends Controller
 
         $route['path'] = $route['executeDir'] ? $route['executeDir'] . "/" : "";
         $this->setExecuteDir($route['executeDir']);
-        $controllerDir = Config::get('CONTROLLERS_PATH');
+
+        if ($route['executeDir']) {
+            $controllerDir = CODE_ROOT_DIR . $route['path'] . "controllers/";
+            Config::set("LANGUAGES_PATH", CODE_ROOT_DIR . $route['path'] . "languages/");
+            Config::set('TEMPLATES_PATH', CODE_ROOT_DIR . $route['path'] . "templates/");
+        } else {
+            $controllerDir = Config::get('CONTROLLERS_PATH');
+        }
 
         $controllerName = empty($params[$index]) ? "" : basename($params[$index]);
         $index++;
