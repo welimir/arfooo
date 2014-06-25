@@ -63,7 +63,7 @@ class Admin_SettingController extends AppController
             }
             //get language code basing on file name
             $languageCode = $matches[1];
-            $fp = fopen('languages/' . $file->getFilename(), "r");
+            $fp = fopen($file->getRealPath(), "r");
             $languageName = "";
 
             //read lines to get languageName
